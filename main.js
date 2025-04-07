@@ -12,6 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.classList.toggle('fa-times');
     });
 
+    // Throttle Function for Scroll Events
+    const throttle = (func, limit) => {
+        let inThrottle;
+        return (...args) => {
+            if (!inThrottle) {
+                func.apply(this, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    };
+
     // Active Link Highlighting
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section, header');
@@ -26,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (link.getAttribute('href') === `#${currentSection}`) link.classList.add('active');
         });
     };
-    window.addEventListener('scroll', updateActiveLink);
+    window.addEventListener('scroll', throttle(updateActiveLink, 100));
     updateActiveLink();
 
     // Navbar Animation on Load
@@ -48,17 +60,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     skillCards.forEach((card, index) => {
                         const progressFill = card.querySelector('.progress-fill');
                         const width = progressFill.dataset.width;
-                        progressFill.style.setProperty('--width', width);
-                        setTimeout(() => progressFill.style.animation = 'elasticBounce 1s ease-out forwards', index * 100);
+                        progressFill.style.width = width; // Set initial width
+                        setTimeout(() => progressFill.classList.add('animate-elastic-bounce'), index * 100);
 
                         card.addEventListener('mouseenter', () => {
-                            progressFill.style.animation = 'none';
+                            progressFill.classList.remove('animate-elastic-bounce');
                             progressFill.style.width = '0';
-                            setTimeout(() => progressFill.style.animation = 'elasticBounce 0.8s ease-out forwards', 10);
-                        });
-                        card.addEventListener('mouseleave', () => {
-                            progressFill.style.animation = 'none';
-                            progressFill.style.width = width;
+                            requestAnimationFrame(() => {
+                                progressFill.classList.add('animate-elastic-bounce');
+                                progressFill.style.width = width;
+                            });
                         });
                     });
                 }
@@ -85,8 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     });
                 }
-
-                observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.2 });
@@ -106,3 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.querySelectorAll('.lazy-load').forEach(img => imgObserver.observe(img));
 });
+
+// Add CSS class for elastic bounce animation
+const styleSheet = document.createElement('style');
+styleSheet.textContent = `
+    .animate-elastic-bounce {
+        animation: elasticBounce 0.8s ease-out forwards;
+    }
+`;
+document.head.appendChild(styleSheet);
