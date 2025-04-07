@@ -9,14 +9,12 @@
 }
 
 body {
-    font-family: 'Lora', serif;
-    font-weight: 400;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     margin: 0;
     padding: 0;
     background: #111827;
     color: var(--text-light);
-    line-height: 1.7;
-    letter-spacing: 0.03em; /* Slightly wider spacing for elegance */
+    line-height: 1.6;
 }
 
 /* General Styles */
@@ -26,15 +24,11 @@ body {
 }
 
 .section-title {
-    font-family: 'Cinzel', serif;
-    font-style: italic; /* Italicized for all section titles */
-    font-size: 2.75rem; /* Slightly larger for impact */
+    font-size: 2.5rem;
     font-weight: 700;
     color: #fff;
     position: relative;
     animation: flipInTitle 0.8s ease-out forwards;
-    letter-spacing: 0.06em; /* Wider spacing for a fancy look */
-    text-shadow: 0 2px 8px rgba(251, 191, 36, 0.5); /* Subtle glow */
 }
 
 .section-title:after {
@@ -43,23 +37,18 @@ body {
     bottom: -0.75rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px; /* Longer underline for elegance */
-    height: 2px;
+    width: 80px;
+    height: 3px;
     background: var(--primary);
     border-radius: 2px;
 }
 
 .section-text {
-    font-family: 'Lora', serif;
-    font-weight: 400;
-    font-style: italic; /* Italics for a softer, fancy touch */
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* Tooltip Styles */
+/* Tooltip Styles (Consolidated and Optimized) */
 .tooltip {
-    font-family: 'Dancing Script', cursive;
-    font-weight: 400;
     position: absolute;
     bottom: 100%;
     left: 50%;
@@ -78,7 +67,6 @@ a:hover .tooltip {
 
 /* Animations */
 .animate-flip-in {
-    will-change: transform, opacity;
     animation: flipIn 1s ease-out forwards;
 }
 .animate-bg-zoom {
@@ -131,12 +119,8 @@ a:hover .tooltip {
 }
 
 .nav-link {
-    font-family: 'Dancing Script', cursive;
-    font-weight: 700;
-    font-size: 1.25rem; /* Larger for a fancy flourish */
     position: relative;
     padding-bottom: 4px;
-    letter-spacing: 0.04em;
 }
 
 .nav-link::after {
@@ -153,27 +137,117 @@ a:hover .tooltip {
 .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 .nav-link.active { color: var(--primary); }
 
+#mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease-in-out, opacity 0.3s ease;
+}
+
+#mobile-menu.open {
+    max-height: 500px;
+    opacity: 1;
+}
+
+#menu-toggle i {
+    transition: transform 0.3s ease;
+}
+#menu-toggle.open i.fa-bars {
+    transform: rotate(90deg);
+}
+/* Brand Logo Styling */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0.75rem 1.25rem; /* More generous padding for luxury */
+    border-radius: 12px; /* Softer, premium corners */
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(0, 0, 0, 0.3)); /* Refined gradient */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Deeper shadow for depth */
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth, elastic transition */
+    overflow: hidden;
+}
+
+.brand-logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.3), transparent);
+    transition: all 0.7s ease;
+    z-index: 0;
+}
+
+.brand-logo:hover::before {
+    left: 100%; /* Shimmer effect on hover */
+}
+
+.brand-logo:hover {
+    transform: scale(1.1) translateY(-2px); /* Subtle lift and scale */
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.4), rgba(0, 0, 0, 0.5));
+    box-shadow: 0 10px 30px rgba(251, 191, 36, 0.6), 0 0 40px rgba(251, 191, 36, 0.2); /* Intense glow */
+}
+
+/* Logo Image */
+
+/* Brand Text */
+.brand-text {
+    font-family: 'Mirza', serif; /* Premium Arabic font with calligraphic flair */
+    font-size: 1.5rem; /* Larger for maximum impact */
+    font-weight: 700;
+    color: transparent; /* For gradient text */
+    background: linear-gradient(45deg, #FBBF24, #FCD34D, #FFFFFF); /* Gradient from yellow to white */
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 3px 10px rgba(251, 191, 36, 0.6), 0 1px 4px rgba(0, 0, 0, 0.4); /* Layered shadow */
+    letter-spacing: 0.1em; /* Ultra-wide spacing for grandeur */
+    position: relative;
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+
+.brand-logo:hover .brand-text {
+    text-shadow: 0 5px 20px rgba(251, 191, 36, 0.9), 0 2px 8px rgba(0, 0, 0, 0.5); /* Amplified glow */
+}
+
+/* Subtext (Anan in English) */
+.brand-subtext {
+    font-family: 'Great Vibes', cursive; /* Fancy cursive for contrast */
+    font-size: 1.25rem;
+    color: #FCD34D;
+    text-shadow: 0 1px 6px rgba(251, 191, 36, 0.5);
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+
+.brand-logo:hover .brand-subtext {
+    opacity: 1;
+    transform: translateY(0); /* Slides up on hover */
+}
+
+/* Animation */
+.animate-flip-in {
+    will-change: transform, opacity;
+    animation: flipIn 1.2s ease-out forwards;
+}
+
+@keyframes flipIn {
+    0% { opacity: 0; transform: perspective(600px) rotateX(-30deg) translateY(60px); }
+    60% { transform: perspective(600px) rotateX(5deg) translateY(-15px); }
+    100% { opacity: 1; transform: perspective(600px) rotateX(0deg) translateY(0); }
+}
+
 /* Header */
 .header-section h1 {
-    font-family: 'Great Vibes', cursive; /* Extravagant for your name */
-    font-weight: 400;
-    font-size: 4.5rem; /* Larger for drama */
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    letter-spacing: 0.08em;
 }
 
-.header-section p {
-    font-family: 'Lora', serif;
-    font-weight: 400;
-    font-style: italic; /* Italics for a fancy touch */
-}
-
-/* Buttons */
-a.inline-block, button {
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-style: italic; /* Italic buttons for flair */
-    letter-spacing: 0.06em;
+.shadow-glow {
+    text-shadow: 0 0 15px rgba(251, 191, 36, 0.8), 0 0 25px rgba(251, 191, 36, 0.5);
 }
 
 /* Profile */
@@ -190,20 +264,19 @@ a.inline-block, button {
 }
 
 .highlight {
-    font-family: 'Dancing Script', cursive;
-    font-weight: 700;
-    font-size: 1.25rem;
     transition: all 0.3s ease;
 }
-
 .group:hover .highlight {
     color: #FCD34D;
     text-shadow: 0 0 10px rgba(251, 191, 36, 0.8);
 }
 
+a.inline-block {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
 /* Skills */
 .skill-card {
-    font-family: 'Lora', serif;
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background 0.5s ease;
 }
 
@@ -212,78 +285,107 @@ a.inline-block, button {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
-.skill-tag {
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-style: italic; /* Italicized skill tags */
+.progress-bar {
+    background: #1F2937;
+    height: 1rem;
+    border-radius: 9999px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #FBBF24, #F59E0B);
+    transition: width 0.8s ease-out;
+}
+
+.progress-ratio {
+    text-align: center;
+    transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform: translateY(10px);
+}
+
+.skill-card:hover .progress-ratio {
+    transform: translateY(0);
+}
+
+/* Media Queries */
+@media (min-width: 1024px) {
+    .content-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title { font-size: 2.5rem; }
+    .section-text, .text-xl { font-size: 1rem; }
+    .photo-wrapper img { width: 10rem; height: 10rem; }
+    a.inline-block { padding: 0.875rem 2rem; font-size: 1rem; }
+    .nav-section { padding: 1rem 0; }
+    .text-3xl { font-size: 1.75rem; }
+    .education-card { margin-left: 2rem; }
+    .education-card .absolute { left: 0; }
 }
 
 /* Education */
-.education-card h3 {
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-style: italic; /* Italicized education titles */
-    letter-spacing: 0.05em;
+.education-card {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background 0.5s ease;
 }
 
-.education-card p {
-    font-family: 'Lora', serif;
-    font-weight: 400;
-    font-style: italic; /* Italics for details */
+.education-card:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.education-detail {
+    transition: opacity 0.3s ease, transform 0.5s ease;
 }
 
 /* Projects */
-.project-card h3 {
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-style: italic; /* Italicized project titles */
-    letter-spacing: 0.05em;
+.project-card {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background 0.5s ease;
 }
 
-.project-card p {
-    font-family: 'Lora', serif;
-    font-weight: 400;
-    font-style: italic; /* Italics for project descriptions */
+.project-card:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.project-card h3 {
+    transition: color 0.3s ease;
+}
+
+.project-card:hover h3 {
+    color: #FCD34D;
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.8);
+}
+
+.project-card a {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.project-card:hover a {
+    transform: scale(1.05);
 }
 
 /* Contact */
-.contact-card p {
-    font-family: 'Dancing Script', cursive;
-    font-weight: 700;
-    font-size: 1.25rem;
+.contact-card {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background 0.5s ease;
 }
 
-.contact-card a {
-    font-family: 'Lora', serif;
-    font-weight: 400;
-    font-style: italic;
-}
-
-/* Footer */
-.footer-section h2 {
-    font-family: 'Great Vibes', cursive; /* Fancy footer heading */
-    font-weight: 400;
-    font-size: 5rem;
-}
-
-.footer-section p {
-    font-family: 'Lora', serif;
-    font-weight: 400;
-    font-style: italic;
-}
-
-/* Input Fields */
-input, textarea {
-    font-family: 'Lora', serif;
-    font-weight: 400;
-    font-style: italic; /* Italics for form inputs */
-}
-
-/* Shadow Glow Effects */
-.shadow-glow {
-    text-shadow: 0 0 15px rgba(251, 191, 36, 0.8), 0 0 25px rgba(251, 191, 36, 0.5);
+.contact-card:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
 .shadow-glow-input {
-    box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+}
+
+/* Footer */
+.footer-section .group:hover {
+    text-shadow: 0 0 8px rgba(251, 191, 36, 0.5);
 }
