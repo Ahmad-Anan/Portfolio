@@ -47,7 +47,7 @@ body {
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* Tooltip Styles (Consolidated and Optimized) */
+/* Tooltip Styles (General) */
 .tooltip {
     position: absolute;
     bottom: 100%;
@@ -69,9 +69,11 @@ a:hover .tooltip {
 .animate-flip-in {
     animation: flipIn 1s ease-out forwards;
 }
+
 .animate-bg-zoom {
     animation: bgZoom 15s ease-in-out infinite;
 }
+
 .animate-pulse {
     animation: pulse 2s ease-in-out infinite;
 }
@@ -95,13 +97,6 @@ a:hover .tooltip {
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
-}
-
-@keyframes elasticBounce {
-    0% { width: 0%; }
-    50% { width: calc(var(--width) * 1.15); }
-    75% { width: calc(var(--width) * 0.95); }
-    100% { width: var(--width); }
 }
 
 [data-delay="200"] { animation-delay: 0.2s; }
@@ -155,16 +150,17 @@ a:hover .tooltip {
 #menu-toggle.open i.fa-bars {
     transform: rotate(90deg);
 }
+
 /* Brand Logo Styling */
 .brand-logo {
     display: flex;
     align-items: center;
     position: relative;
-    padding: 0.75rem 1.25rem; /* More generous padding for luxury */
-    border-radius: 12px; /* Softer, premium corners */
-    background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(0, 0, 0, 0.3)); /* Refined gradient */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Deeper shadow for depth */
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth, elastic transition */
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(0, 0, 0, 0.3));
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     overflow: hidden;
 }
 
@@ -181,40 +177,38 @@ a:hover .tooltip {
 }
 
 .brand-logo:hover::before {
-    left: 100%; /* Shimmer effect on hover */
+    left: 100%;
 }
 
 .brand-logo:hover {
-    transform: scale(1.1) translateY(-2px); /* Subtle lift and scale */
+    transform: scale(1.1) translateY(-2px);
     background: linear-gradient(135deg, rgba(251, 191, 36, 0.4), rgba(0, 0, 0, 0.5));
-    box-shadow: 0 10px 30px rgba(251, 191, 36, 0.6), 0 0 40px rgba(251, 191, 36, 0.2); /* Intense glow */
+    box-shadow: 0 10px 30px rgba(251, 191, 36, 0.6), 0 0 40px rgba(251, 191, 36, 0.2);
 }
-
-/* Logo Image */
 
 /* Brand Text */
 .brand-text {
-    font-family: 'Mirza', serif; /* Premium Arabic font with calligraphic flair */
-    font-size: 1.5rem; /* Larger for maximum impact */
+    font-family: 'Mirza', serif;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: transparent; /* For gradient text */
-    background: linear-gradient(45deg, #FBBF24, #FCD34D, #FFFFFF); /* Gradient from yellow to white */
+    color: transparent;
+    background: linear-gradient(45deg, #FBBF24, #FCD34D, #FFFFFF);
     -webkit-background-clip: text;
     background-clip: text;
-    text-shadow: 0 3px 10px rgba(251, 191, 36, 0.6), 0 1px 4px rgba(0, 0, 0, 0.4); /* Layered shadow */
-    letter-spacing: 0.1em; /* Ultra-wide spacing for grandeur */
+    text-shadow: 0 3px 10px rgba(251, 191, 36, 0.6), 0 1px 4px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.1em;
     position: relative;
     z-index: 1;
     transition: all 0.5s ease;
 }
 
 .brand-logo:hover .brand-text {
-    text-shadow: 0 5px 20px rgba(251, 191, 36, 0.9), 0 2px 8px rgba(0, 0, 0, 0.5); /* Amplified glow */
+    text-shadow: 0 5px 20px rgba(251, 191, 36, 0.9), 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* Subtext (Anan in English) */
 .brand-subtext {
-    font-family: 'Great Vibes', cursive; /* Fancy cursive for contrast */
+    font-family: 'Great Vibes', cursive;
     font-size: 1.25rem;
     color: #FCD34D;
     text-shadow: 0 1px 6px rgba(251, 191, 36, 0.5);
@@ -226,19 +220,7 @@ a:hover .tooltip {
 
 .brand-logo:hover .brand-subtext {
     opacity: 1;
-    transform: translateY(0); /* Slides up on hover */
-}
-
-/* Animation */
-.animate-flip-in {
-    will-change: transform, opacity;
-    animation: flipIn 1.2s ease-out forwards;
-}
-
-@keyframes flipIn {
-    0% { opacity: 0; transform: perspective(600px) rotateX(-30deg) translateY(60px); }
-    60% { transform: perspective(600px) rotateX(5deg) translateY(-15px); }
-    100% { opacity: 1; transform: perspective(600px) rotateX(0deg) translateY(0); }
+    transform: translateY(0);
 }
 
 /* Header */
@@ -266,6 +248,7 @@ a:hover .tooltip {
 .highlight {
     transition: all 0.3s ease;
 }
+
 .group:hover .highlight {
     color: #FCD34D;
     text-shadow: 0 0 10px rgba(251, 191, 36, 0.8);
@@ -276,18 +259,29 @@ a.inline-block {
 }
 
 /* Skills */
+.content-section {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
 .skill-card {
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background 0.5s ease;
+    position: relative;
+    background: #2D3748; /* Gray-750 */
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .skill-card:hover {
-    transform: scale(1.1) translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-8px); /* Subtle lift */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+    background: #374151; /* Slightly lighter gray */
 }
 
 .progress-bar {
-    background: #1F2937;
-    height: 1rem;
+    background: #1F2937; /* Gray-800 */
+    height: 0.75rem;
     border-radius: 9999px;
     overflow: hidden;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -296,17 +290,51 @@ a.inline-block {
 .progress-fill {
     height: 100%;
     background: linear-gradient(to right, #FBBF24, #F59E0B);
-    transition: width 0.8s ease-out;
+    width: 0; /* Default hidden */
+    transition: width 0.5s ease-out, filter 0.3s ease; /* Animate width and filter */
+}
+
+.skill-card:hover .progress-fill {
+    width: attr(data-width); /* Use data-width on hover */
+    filter: brightness(1.2); /* Slight brightening */
 }
 
 .progress-ratio {
     text-align: center;
-    transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    transform: translateY(10px);
+    color: #FCD34D;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .skill-card:hover .progress-ratio {
-    transform: translateY(0);
+    opacity: 1; /* Show only on hovered card */
+}
+
+.skill-card .tooltip {
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(17, 24, 39, 0.95);
+    color: #fff;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: max-content;
+    max-width: 200px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.skill-card:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px); /* Slight lift for effect */
 }
 
 /* Media Queries */
@@ -328,6 +356,8 @@ a.inline-block {
     .text-3xl { font-size: 1.75rem; }
     .education-card { margin-left: 2rem; }
     .education-card .absolute { left: 0; }
+    .skill-card { padding: 1rem; }
+    .skill-card .tooltip { max-width: 150px; font-size: 0.75rem; }
 }
 
 /* Education */

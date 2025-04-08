@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                     });
                 }
+                
 
                 // Contact Form
                 if (entry.target.id === 'contact') {
