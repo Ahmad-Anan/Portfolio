@@ -125,3 +125,66 @@ styleSheet.textContent = `
     }
 `;
 document.head.appendChild(styleSheet);
+
+// Image enlargement
+function toggleEnlargeImage(imgElement) {
+    const overlay = document.getElementById('image-overlay');
+    const enlargedImage = document.getElementById('enlarged-image');
+    
+    enlargedImage.src = imgElement.src;
+    
+    overlay.classList.remove('hidden');
+    setTimeout(() => {
+        overlay.classList.add('show');
+    }, 10);
+}
+
+function closeEnlargedImage(event) {
+    if (event.target.id !== 'enlarged-image') {
+        const overlay = document.getElementById('image-overlay');
+        overlay.classList.remove('show');
+        
+        setTimeout(() => {
+            overlay.classList.add('hidden');
+        }, 500);
+    }
+}
+
+// Mobile menu toggle
+document.getElementById('menu-toggle').addEventListener('click', function() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+        setTimeout(() => {
+            mobileMenu.classList.add('open');
+        }, 10);
+    } else {
+        mobileMenu.classList.remove('open');
+        setTimeout(() => {
+            mobileMenu.classList.add('hidden');
+        }, 500);
+    }
+    this.classList.toggle('open');
+});
+
+// Progress bars on hover
+document.querySelectorAll('.skill-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        const fill = card.querySelector('.progress-fill');
+        fill.style.width = fill.dataset.width;
+    });
+    card.addEventListener('mouseleave', () => {
+        const fill = card.querySelector('.progress-fill');
+        fill.style.width = '0';
+    });
+});
+
+// Form submission
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMessage = document.getElementById('form-success');
+    successMessage.classList.add('opacity-100');
+    setTimeout(() => {
+        successMessage.classList.remove('opacity-100');
+    }, 3000);
+});

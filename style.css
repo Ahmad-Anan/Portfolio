@@ -47,7 +47,7 @@ body {
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* Tooltip Styles (General) */
+/* Tooltip Styles */
 .tooltip {
     position: absolute;
     bottom: 100%;
@@ -97,6 +97,11 @@ a:hover .tooltip {
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 [data-delay="200"] { animation-delay: 0.2s; }
@@ -186,7 +191,6 @@ a:hover .tooltip {
     box-shadow: 0 10px 30px rgba(251, 191, 36, 0.6), 0 0 40px rgba(251, 191, 36, 0.2);
 }
 
-/* Brand Text */
 .brand-text {
     font-family: 'Mirza', serif;
     font-size: 1.5rem;
@@ -206,7 +210,6 @@ a:hover .tooltip {
     text-shadow: 0 5px 20px rgba(251, 191, 36, 0.9), 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Subtext (Anan in English) */
 .brand-subtext {
     font-family: 'Great Vibes', cursive;
     font-size: 1.25rem;
@@ -258,6 +261,34 @@ a.inline-block {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
+#image-overlay {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#image-overlay.show {
+    opacity: 1;
+}
+
+#enlarged-image {
+    transform: scale(0);
+    transition: transform 0.5s ease-in-out;
+}
+
+#image-overlay.show #enlarged-image {
+    transform: scale(1);
+}
+
+@supports (backdrop-filter: blur(10px)) {
+    #image-overlay {
+        backdrop-filter: blur(10px);
+    }
+}
+
+.photo-wrapper img {
+    cursor: pointer;
+}
+
 /* Skills */
 .content-section {
     opacity: 0;
@@ -266,7 +297,7 @@ a.inline-block {
 
 .skill-card {
     position: relative;
-    background: #2D3748; /* Gray-750 */
+    background: #2D3748;
     padding: 1.5rem;
     border-radius: 0.75rem;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
@@ -274,13 +305,13 @@ a.inline-block {
 }
 
 .skill-card:hover {
-    transform: translateY(-8px); /* Subtle lift */
+    transform: translateY(-8px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
-    background: #374151; /* Slightly lighter gray */
+    background: #374151;
 }
 
 .progress-bar {
-    background: #1F2937; /* Gray-800 */
+    background: #1F2937;
     height: 0.75rem;
     border-radius: 9999px;
     overflow: hidden;
@@ -290,13 +321,8 @@ a.inline-block {
 .progress-fill {
     height: 100%;
     background: linear-gradient(to right, #FBBF24, #F59E0B);
-    width: 0; /* Default hidden */
-    transition: width 0.5s ease-out, filter 0.3s ease; /* Animate width and filter */
-}
-
-.skill-card:hover .progress-fill {
-    width: attr(data-width); /* Use data-width on hover */
-    filter: brightness(1.2); /* Slight brightening */
+    width: 0;
+    transition: width 0.5s ease-out;
 }
 
 .progress-ratio {
@@ -309,7 +335,7 @@ a.inline-block {
 }
 
 .skill-card:hover .progress-ratio {
-    opacity: 1; /* Show only on hovered card */
+    opacity: 1;
 }
 
 .skill-card .tooltip {
@@ -334,7 +360,7 @@ a.inline-block {
 
 .skill-card:hover .tooltip {
     opacity: 1;
-    transform: translateX(-50%) translateY(-5px); /* Slight lift for effect */
+    transform: translateX(-50%) translateY(-5px);
 }
 
 /* Media Queries */

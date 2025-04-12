@@ -1,103 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Portfolio of Ahmed Maged Anan, a skilled Frontend Developer specializing in Angular, JavaScript, and Tailwind CSS.">
-        <meta property="og:title" content="Ahmed Maged Anan | Frontend Developer">
-        <meta property="og:image" content="./1.jpg">
-        <meta property="og:description" content="Explore my work as a Frontend Developer with expertise in modern web technologies.">
-        <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style">
-        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
-        <link rel="icon" href="./favicon.ico" type="image/x-icon">
-        <!-- Updated Google Fonts -->
-        <title>Ahmed Maged Anan | Frontend Developer</title>
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body class="bg-gray-900 text-gray-100 font-sans overflow-x-hidden">
-            <!-- Navigation -->
-        <nav class="nav-section bg-gradient-to-r from-gray-800 via-gray-900 to-black shadow-lg sticky top-0 z-50 transition-all duration-500">
-            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-                <div class="brand-logo flex items-center cursor-pointer text-yellow-400 transition-all duration-500 animate-flip-in">
-                    <span class="brand-text relative">
-                        عنان
-                        <span class="brand-subtext absolute -bottom-2 left-0 w-full text-sm text-yellow-500 opacity-0 transition-all duration-300">Anan</span>
-                    </span>
-                </div>
-                    <ul class="hidden md:flex space-x-10 text-lg font-semibold">
-                    <li><a href="#home" class="nav-link text-gray-300 hover:text-yellow-400 transition-all duration-300">Home</a></li>
-                    <li><a href="#profile" class="nav-link text-gray-300 hover:text-yellow-400 transition-all duration-300">Profile</a></li>
-                    <li><a href="#skills" class="nav-link text-gray-300 hover:text-yellow-400 transition-all duration-300">Skills</a></li>
-                    <li><a href="#education" class="nav-link text-gray-300 hover:text-yellow-400 transition-all duration-300">Edu & Lang</a></li>
-                    <li><a href="#contact" class="nav-link text-gray-300 hover:text-yellow-400 transition-all duration-300">Contact</a></li>
-                </ul>
-                <button id="menu-toggle" class="md:hidden text-yellow-400 focus:outline-none transition-transform duration-300">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Ahmed Maged Anan, a skilled Frontend Developer specializing in Angular, JavaScript, and Tailwind CSS.">
+    <meta property="og:title" content="Ahmed Maged Anan | Frontend Developer">
+    <meta property="og:image" content="./1.jpg">
+    <meta property="og:description" content="Explore my work as a Frontend Developer with expertise in modern web technologies.">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <title>Ahmed Maged Anan | Frontend Developer</title>
+    <!-- Google Fonts for Inter, Mirza, and Great Vibes -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;700&family=Mirza&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Updated to Font Awesome 6.5.1 for the latest icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-gray-100 overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="nav-section bg-gradient-to-r from-gray-800 via-gray-900 to-black shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="brand-logo flex items-center cursor-pointer text-yellow-400">
+                <span class="brand-text relative text-2xl font-bold">
+                    عنان
+                    <span class="brand-subtext absolute -bottom-2 left-0 w-full text-sm text-yellow-500">Anan</span>
+                </span>
             </div>
-            <div id="mobile-menu" class="hidden md:hidden bg-gray-900 px-6 py-6 shadow-lg transition-all duration-500 ease-in-out">
-                <ul class="space-y-6 text-lg font-semibold text-center">
-                    <li><a href="#home" class="nav-link block text-gray-300 hover:text-yellow-400 transition-all duration-300">Home</a></li>
-                    <li><a href="#profile" class="nav-link block text-gray-300 hover:text-yellow-400 transition-all duration-300">Profile</a></li>
-                    <li><a href="#skills" class="nav-link block text-gray-300 hover:text-yellow-400 transition-all duration-300">Skills</a></li>
-                    <li><a href="#education" class="nav-link block text-gray-300 hover:text-yellow-400 transition-all duration-300">Edu & Lang</a></li>
-                    <li><a href="#contact" class="nav-link block text-gray-300 hover:text-yellow-400 transition-all duration-300">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
+            <ul class="hidden md:flex space-x-8 text-base font-semibold">
+                <li><a href="#home" class="nav-link text-gray-300 hover:text-yellow-400 transition-colors duration-300">Home</a></li>
+                <li><a href="#profile" class="nav-link text-gray-300 hover:text-yellow-400 transition-colors duration-300">Profile</a></li>
+                <li><a href="#skills" class="nav-link text-gray-300 hover:text-yellow-400 transition-colors duration-300">Skills</a></li>
+                <li><a href="#education" class="nav-link text-gray-300 hover:text-yellow-400 transition-colors duration-300">Edu & Lang</a></li>
+                <li><a href="#contact" class="nav-link text-gray-300 hover:text-yellow-400 transition-colors duration-300">Contact</a></li>
+            </ul>
+            <button id="menu-toggle" class="md:hidden text-yellow-400 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 px-6 py-6 shadow-lg">
+            <ul class="space-y-4 text-base font-semibold text-center">
+                <li><a href="#home" class="nav-link block text-gray-300 hover:text-yellow-400 transition-colors duration-300">Home</a></li>
+                <li><a href="#profile" class="nav-link block text-gray-300 hover:text-yellow-400 transition-colors duration-300">Profile</a></li>
+                <li><a href="#skills" class="nav-link block text-gray-300 hover:text-yellow-400 transition-colors duration-300">Skills</a></li>
+                <li><a href="#education" class="nav-link block text-gray-300 hover:text-yellow-400 transition-colors duration-300">Edu & Lang</a></li>
+                <li><a href="#contact" class="nav-link block text-gray-300 hover:text-yellow-400 transition-colors duration-300">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <!-- Header -->
-        <header id="home" class="header-section relative flex items-center min-h-screen bg-cover bg-center overflow-hidden" style="background-image: url('./2.png');">
-            <div class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 opacity-90 backdrop-blur-lg animate-bg-zoom"></div>
-            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"6\" height=\"6\" viewBox=\"0 0 6 6\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.1\"%3E%3Cpath d=\"M5 0h1L0 6V5zM6 5v1H5z\"/%3E%3C/g%3E%3C/svg%3E')]"></div>
-            <div class="container mx-auto relative z-10 px-6 py-20 text-center">
-                <div class="flex flex-col items-center justify-center gap-8">
-                    <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight transition-all duration-500 hover:text-yellow-100 hover:shadow-glow animate-flip-in" data-delay="0">Ahmed Maged Anan</h1>
-                    <p class="text-2xl md:text-4xl font-semibold text-yellow-400 animate-flip-in" data-delay="200">Frontend Developer</p>
-                    <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-medium animate-flip-in" data-delay="400">Crafting high-performance, user-centric web applications with modern technologies.</p>
-                    <a href="#profile" class="inline-block bg-yellow-400 text-gray-900 py-4 px-10 rounded-full font-semibold text-lg shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300 animate-flip-in" data-delay="600">Learn More</a>
-                    <div class="flex justify-center gap-6 mt-6">
-                        <a href="https://www.linkedin.com/in/ahmed-anan-285364273/" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:text-yellow-300 text-3xl transition-all duration-300 hover:scale-125 relative">
-                            <i class="fab fa-linkedin"></i>
-                            <span class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm py-2 px-3 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none mb-2 z-10 shadow-md">Anan-LinkedIn</span>
-                        </a>
-                        <a href="https://github.com/Ahmad-Anan" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:text-yellow-300 text-3xl transition-all duration-300 hover:scale-125 relative">
-                            <i class="fab fa-github"></i>
-                            <span class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm py-2 px-3 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none mb-2 z-10 shadow-md">Anan-GitHub</span>
-                        </a>
-                        <a href="https://www.facebook.com/profile.php?id=100011629367323" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:text-yellow-300 text-3xl transition-all duration-300 hover:scale-125 relative">
-                            <i class="fab fa-facebook"></i>
-                            <span class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm py-2 px-3 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none mb-2 z-10 shadow-md">Anan-Facebook</span>
-                        </a>
-                        <a href="mailto:enan611@gmail.com" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:text-yellow-300 text-3xl transition-all duration-300 hover:scale-125 relative">
-                            <i class="fas fa-envelope"></i>
-                            <span class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm py-2 px-3 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none mb-2 z-10 shadow-md">Anan-Email</span>
-                        </a>
-                        <a href="https://wa.me/+201002416804" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:text-yellow-300 text-3xl transition-all duration-300 hover:scale-125 relative">
-                            <i class="fab fa-whatsapp"></i>
-                            <span class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm py-2 px-3 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none mb-2 z-10 shadow-md">Anan-WhatsApp</span>
-                        </a>
-                    </div>
+    <!-- Header -->
+    <header id="home" class="header-section relative flex items-center min-h-screen bg-cover bg-center overflow-hidden" style="background-image: url('./2.png');">
+        <div class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 opacity-90 backdrop-blur-lg animate-bg-zoom"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"6\" height=\"6\" viewBox=\"0 0 6 6\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.1\"%3E%3Cpath d=\"M5 0h1L0 6V5zM6 5v1H5z\"/%3E%3C/g%3E%3C/svg%3E')]"></div>
+        <div class="container mx-auto relative z-10 px-6 py-20 text-center">
+            <div class="flex flex-col items-center justify-center gap-8">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight transition-all duration-500 hover:text-yellow-100 hover:shadow-glow animate-flip-in" data-delay="0">Ahmed Maged Anan</h1>
+                <p class="text-2xl md:text-4xl font-semibold text-yellow-400 animate-flip-in" data-delay="200">Frontend Developer</p>
+                <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-medium animate-flip-in" data-delay="400">Crafting high-performance, user-centric web applications with modern technologies.</p>
+                <a href="#profile" class="inline-block bg-yellow-400 text-gray-900 py-4 px-10 rounded-full font-semibold text-lg shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300 animate-flip-in" data-delay="600">Learn More</a>
+                <div class="flex justify-center gap-6 mt-6">
+                    <a href="https://www.linkedin.com/in/ahmed-anan-285364273/" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:text-yellow-300 text-3xl transition-all duration-300 hover:scale-125 relative">
+                        <i class="fab fa-linkedin"></i>
+                        <span class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm py-2 px-3 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none mb-2 z-10 shadow-md">Anan-LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/Ahmad-Anan" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:text-yellow-300 text-3xl transition-all duration-300 hover:scale-125 relative">
+                        <i class="fab fa-github"></i>
+                        <span class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm py-2 px-3 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none mb-2 z-10 shadow-md">Anan-GitHub</span>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100011629367323" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:text-yellow-300 text-3xl transition-all duration-300 hover:scale-125 relative">
+                        <i class="fab fa-facebook"></i>
+                        <span class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm py-2 px-3 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none mb-2 z-10 shadow-md">Anan-Facebook</span>
+                    </a>
+                    <a href="mailto:enan611@gmail.com" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:text-yellow-300 text-3xl transition-all duration-300 hover:scale-125 relative">
+                        <i class="fas fa-envelope"></i>
+                        <span class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm py-2 px-3 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none mb-2 z-10 shadow-md">Anan-Email</span>
+                    </a>
+                    <a href="https://wa.me/+201002416804" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:text-yellow-300 text-3xl transition-all duration-300 hover:scale-125 relative">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm py-2 px-3 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none mb-2 z-10 shadow-md">Anan-WhatsApp</span>
+                    </a>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- Main Content -->
+    <!-- Main Content -->
     <main class="container mx-auto py-16 px-6 space-y-20">
-            <!-- Profile -->
+        <!-- Profile -->
         <section id="profile" class="content-section py-24 bg-gradient-to-r from-gray-800 via-gray-900 to-gray-700 rounded-2xl shadow-2xl relative overflow-hidden">
             <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M0 0h2v2H0zM4 4h2v2H4zM8 8h2v2H8zM12 12h2v2h-2zM16 16h2v2h-2z\"/%3E%3C/g%3E%3C/svg%3E')] animate-bg-zoom"></div>
             <div class="relative z-10">
                 <div class="text-center mb-16">
-                    <h2 class="section-title text-5xl font-extrabold text-white mb-4 animate-flip-in bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600">Summery</h2>
+                    <h2 class="section-title text-5xl font-extrabold text-white mb-4 animate-flip-in bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600">Summary</h2>
                     <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-16">
                     <div class="photo-wrapper animate-flip-in relative group" data-delay="0">
-                        <img src="./1.jpg" alt="Ahmed Maged Anan" data-src="./1.jpg" class="w-40 h-40 md:w-56 md:h-56 object-cover rounded-full border-4 border-yellow-400 shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-2xl lazy-load" loading="lazy">
+                        <img src="./1.jpg" alt="Ahmed Maged Anan" class="w-40 h-40 md:w-56 md:h-56 object-cover rounded-full border-4 border-yellow-400 shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-2xl cursor-pointer" loading="lazy" onclick="toggleEnlargeImage(this)">
                         <span class="absolute -top-2 -right-2 bg-yellow-400 text-gray-900 text-xs font-semibold px-3 py-1 rounded-full shadow-md animate-pulse">Available for Hire</span>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm p-3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none mb-2">Ahmed Maged Anan - Frontend Developer</div>
                     </div>
@@ -118,9 +117,13 @@
                     </div>
                 </div>
             </div>
+            <!-- Enlarged Image Overlay -->
+            <div id="image-overlay" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden transition-opacity duration-500" onclick="closeEnlargedImage(event)">
+                <img id="enlarged-image" src="" alt="Enlarged Image" class="max-w-[90%] max-h-[90%] object-contain rounded-2xl shadow-2xl transform scale-0 transition-transform duration-500">
+            </div>
         </section>
 
-            <!-- Skills -->
+        <!-- Skills -->
         <section id="skills" class="content-section py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl shadow-2xl overflow-hidden">
             <div class="relative mx-auto max-w-7xl px-6 z-10">
                 <div class="text-center mb-12">
@@ -128,7 +131,6 @@
                     <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full shadow-glow"></div>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    <!-- Software Engineer -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-laptop-code text-yellow-400 text-3xl mr-4"></i>
@@ -140,11 +142,10 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">90%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">Versatile Software Engineer building efficient, scalable, and maintainable software solutions.</div>
                     </div>
-                    <!-- Front-End Developer -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-layer-group text-yellow-400 text-3xl mr-4"></i>
-                            <span class="skill-tag text-yellow-400 font-semibold text-xl">Front-End Developer </span>
+                            <span class="skill-tag text-yellow-400 font-semibold text-xl">Front-End Developer</span>
                         </div>
                         <div class="progress-bar h-3 bg-gray-900 rounded-full overflow-hidden relative">
                             <div class="progress-fill bg-gradient-to-r from-yellow-400 to-yellow-600" style="width: 0;" data-width="90%"></div>
@@ -152,7 +153,6 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">90%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">Skilled Front-End Developer crafting responsive, modern, and user-friendly interfaces.</div>
                     </div>
-
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fab fa-angular text-yellow-400 text-3xl mr-4"></i>
@@ -164,7 +164,6 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">90%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">Expert in building scalable SPA applications.</div>
                     </div>
-                    <!-- TypeScript -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-code text-yellow-400 text-3xl mr-4"></i>
@@ -176,7 +175,6 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">85%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">Strong typing for robust applications.</div>
                     </div>
-                    <!-- JavaScript -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fab fa-js text-yellow-400 text-3xl mr-4"></i>
@@ -188,10 +186,9 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">85%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">Proficient in ES6+ and dynamic scripting.</div>
                     </div>
-                    <!-- jQuery -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
-                            <i class="fas fa-j text-yellow-400 text-3xl mr-4"></i>
+                            <i class="fas fa-code text-yellow-400 text-3xl mr-4"></i>
                             <span class="skill-tag text-yellow-400 font-semibold text-xl">jQuery</span>
                         </div>
                         <div class="progress-bar h-3 bg-gray-900 rounded-full overflow-hidden relative">
@@ -200,7 +197,6 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">75%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">Efficient DOM manipulation and event handling.</div>
                     </div>
-                    <!-- Tailwind CSS -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-wind text-yellow-400 text-3xl mr-4"></i>
@@ -212,7 +208,6 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">80%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">Skilled in utility-first CSS for rapid UI design.</div>
                     </div>
-                    <!-- HTML5 -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fab fa-html5 text-yellow-400 text-3xl mr-4"></i>
@@ -224,7 +219,6 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">95%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">Mastered semantic markup and accessibility.</div>
                     </div>
-                    <!-- CSS3 -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fab fa-css3 text-yellow-400 text-3xl mr-4"></i>
@@ -236,7 +230,6 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">90%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">Advanced animations and responsive layouts.</div>
                     </div>
-                    <!-- SASS -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fab fa-sass text-yellow-400 text-3xl mr-4"></i>
@@ -248,7 +241,6 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">85%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">Advanced CSS preprocessing with variables and mixins.</div>
                     </div>
-                    <!-- PrimeNG -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-cubes text-yellow-400 text-3xl mr-4"></i>
@@ -260,7 +252,6 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">80%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">Proficient in Angular UI component library.</div>
                     </div>
-                    <!-- Bootstrap -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fab fa-bootstrap text-yellow-400 text-3xl mr-4"></i>
@@ -272,10 +263,9 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">80%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">Responsive grid system and components.</div>
                     </div>
-                    <!-- Angular Bootstrap -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
-                            <i class="fas fa-b text-yellow-400 text-3xl mr-4"></i>
+                            <i class="fas fa-cubes text-yellow-400 text-3xl mr-4"></i>
                             <span class="skill-tag text-yellow-400 font-semibold text-xl">NgBootstrap</span>
                         </div>
                         <div class="progress-bar h-3 bg-gray-900 rounded-full overflow-hidden relative">
@@ -284,7 +274,6 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">75%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">Bootstrap integration with Angular.</div>
                     </div>
-                    <!-- Flowbite -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-layer-group text-yellow-400 text-3xl mr-4"></i>
@@ -296,7 +285,6 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">70%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">Tailwind-based component library expertise.</div>
                     </div>
-                    <!-- Figma -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fab fa-figma text-yellow-400 text-3xl mr-4"></i>
@@ -308,7 +296,6 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">75%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">UI/UX design and prototyping.</div>
                     </div>
-                    <!-- UI/UX Design -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-pencil-ruler text-yellow-400 text-3xl mr-4"></i>
@@ -320,7 +307,6 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">70%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">User-centered design principles.</div>
                     </div>
-                    <!-- SOLID -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-cogs text-yellow-400 text-3xl mr-4"></i>
@@ -332,11 +318,10 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">80%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">Applying SOLID principles for clean code.</div>
                     </div>
-                    <!-- Unit Testing (Jasmin) -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-vial text-yellow-400 text-3xl mr-4"></i>
-                            <span class="skill-tag text-yellow-400 font-semibold text-xl">Unit Testing (Jasmin)</span>
+                            <span class="skill-tag text-yellow-400 font-semibold text-xl">Unit Testing (Jasmine)</span>
                         </div>
                         <div class="progress-bar h-3 bg-gray-900 rounded-full overflow-hidden relative">
                             <div class="progress-fill bg-gradient-to-r from-yellow-400 to-yellow-600" style="width: 0;" data-width="75%"></div>
@@ -344,7 +329,6 @@
                         <p class="progress-ratio text-yellow-300 text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">75%</p>
                         <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none">Testing Angular apps with Jasmine.</div>
                     </div>
-                    <!-- Source Control (Git & GitHub) -->
                     <div class="skill-card group p-6 bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700 relative">
                         <div class="flex items-center mb-4">
                             <i class="fab fa-github text-yellow-400 text-3xl mr-4"></i>
@@ -360,86 +344,79 @@
             </div>
         </section>
 
-                <!-- Projects -->
-                <section id="projects" class="content-section py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl shadow-2xl">
-                    <div class="relative z-10">
-                        <div class="text-center mb-16">
-                            <h2 class="section-title text-5xl font-extrabold text-white mb-4 animate-flip-in bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600">Projects</h2>
-                            <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
+        <!-- Projects -->
+        <section id="projects" class="content-section py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl shadow-2xl">
+            <div class="relative z-10">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-5xl font-extrabold text-white mb-4 animate-flip-in bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600">Projects</h2>
+                    <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="project-card group p-6 bg-gray-700 rounded-xl shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-600 relative overflow-hidden animate-flip-in" data-delay="200">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-shopping-cart text-yellow-400 text-3xl mr-4"></i>
+                            <h3 class="text-xl font-semibold text-yellow-400">E-Commerce Website</h3>
                         </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <!-- E-Commerce Website -->
-                            <div class="project-card group p-6 bg-gray-750 rounded-xl shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-600 relative overflow-hidden animate-flip-in" data-delay="200">
-                                <div class="flex items-center mb-4">
-                                    <i class="fas fa-shopping-cart text-yellow-400 text-3xl mr-4"></i>
-                                    <h3 class="text-xl font-semibold text-yellow-400">E-Commerce Website</h3>
-                                </div>
-                                <p class="text-gray-300 text-lg mb-4">Developed a responsive Angular-based e-commerce platform allowing users to browse products and manage carts.</p>
-                                <p class="text-gray-400 text-sm mb-4"><span class="text-yellow-400 font-semibold">Technologies:</span> Angular 17, Bootstrap, TypeScript</p>
-                                <a href="https://e-commerce-eta-seven-66.vercel.app/login" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-400 text-gray-900 py-2 px-6 rounded-full font-semibold text-sm shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300">View Project</a>
-                                <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">ECommerce-Project on GitHub</div>
-                            </div>
-                            <!-- Website Project -->
-                            <div class="project-card group p-6 bg-gray-750 rounded-xl shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-600 relative overflow-hidden animate-flip-in" data-delay="400">
-                                <div class="flex items-center mb-4">
-                                    <i class="fas fa-globe text-yellow-400 text-3xl mr-4"></i>
-                                    <h3 class="text-xl font-semibold text-yellow-400">Website Project</h3>
-                                </div>
-                                <p class="text-gray-300 text-lg mb-4">Developed a responsive Angular-based e-commerce platform allowing users to browse products and manage carts.</p>
-                                <p class="text-gray-400 text-sm mb-4"><span class="text-yellow-400 font-semibold">Technologies:</span> Angular v19, TypeScript, Tailwind v4, Flowbite</p>
-                                <a href="https://e-commerce-19.vercel.app/#/login" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-400 text-gray-900 py-2 px-6 rounded-full font-semibold text-sm shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300">View Project</a>
-                                <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Website-Project on GitHub</div>
-                            </div>
-                            <!-- Social App -->
-                            <div class="project-card group p-6 bg-gray-750 rounded-xl shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-600 relative overflow-hidden animate-flip-in" data-delay="600">
-                                <div class="flex items-center mb-4">
-                                    <i class="fas fa-comments text-yellow-400 text-3xl mr-4"></i>
-                                    <h3 class="text-xl font-semibold text-yellow-400">Social App</h3>
-                                </div>
-                                <p class="text-gray-300 text-lg mb-4">A dynamic Angular social app enabling real-time chat, user interaction, profile management, media sharing, and seamless communication across devices.</p>
-                                <p class="text-gray-400 text-sm mb-4"><span class="text-yellow-400 font-semibold">Technologies:</span> Angular v19, TypeScript, NgBootstrap</p>
-                                <a href="https://social-app-dun-beta.vercel.app/login" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-400 text-gray-900 py-2 px-6 rounded-full font-semibold text-sm shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300">View Project</a>
-                                <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Social-App on GitHub</div>
-                            </div>
-                            <!-- jQuery Website -->
-                            <div class="project-card group p-6 bg-gray-750 rounded-xl shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-600 relative overflow-hidden animate-flip-in" data-delay="800">
-                                <div class="flex items-center mb-4">
-                                    <i class="fas fa-code text-yellow-400 text-3xl mr-4"></i>
-                                    <h3 class="text-xl font-semibold text-yellow-400">jQuery Website (Pure JavaScript)</h3>
-                                </div>
-                                <p class="text-gray-300 text-lg mb-4">A simple jQuery website utilizing jQuery for easy DOM manipulation, enhancing interactivity and user experience with animations and responsive design features.</p>
-                                <p class="text-gray-400 text-sm mb-4"><span class="text-yellow-400 font-semibold">Technologies:</span> jQuery, Bootstrap</p>
-                                <a href="https://j-query-three.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-400 text-gray-900 py-2 px-6 rounded-full font-semibold text-sm shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300">View Project</a>
-                                <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">jQuery Project on GitHub</div>
-                            </div>
-                            <!-- Game OOP -->
-                            <div class="project-card group p-6 bg-gray-750 rounded-xl shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-600 relative overflow-hidden animate-flip-in" data-delay="800">
-                                <div class="flex items-center mb-4">
-                                    <i class="fas fa-gamepad text-yellow-400 text-3xl mr-4"></i>
-                                    <h3 class="text-xl font-semibold text-yellow-400">Game OOP</h3>
-                                </div>
-                                <p class="text-gray-300 text-lg mb-4">Creating a game website using object-oriented programming and APIs to manage user interactions, game data, and dynamic content efficiently.</p>
-                                <p class="text-gray-400 text-sm mb-4"><span class="text-yellow-400 font-semibold">Technologies:</span> OOP JavaScript and Bootstrap</p>
-                                <a href="https://game-seven-dun.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-400 text-gray-900 py-2 px-6 rounded-full font-semibold text-sm shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300">View Project</a>
-                                <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Game OOP Project on GitHub</div>
-                            </div>
-                            <!-- Yummy -->
-                            <div class="project-card group p-6 bg-gray-750 rounded-xl shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-600 relative overflow-hidden animate-flip-in" data-delay="800">
-                                <div class="flex items-center mb-4">
-                                    <i class="fas fa-utensils text-yellow-400 text-3xl mr-4"></i>
-                                    <h3 class="text-xl font-semibold text-yellow-400">Yummy</h3>
-                                </div>
-                                <p class="text-gray-300 text-lg mb-4">Welcome to Yummy Project! Discover delicious recipes, cooking tips, food blogs, and vibrant culinary inspiration for every food lover!</p>
-                                <p class="text-gray-400 text-sm mb-4"><span class="text-yellow-400 font-semibold">Technologies:</span> HTML, Bootstrap, JavaScript</p>
-                                <a href="https://yummy-livid-five.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-400 text-gray-900 py-2 px-6 rounded-full font-semibold text-sm shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300">View Project</a>
-                                <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Yummy Project on GitHub</div>
-                            </div>
-                        </div>
+                        <p class="text-gray-300 text-lg mb-4">Developed a responsive Angular-based e-commerce platform allowing users to browse products and manage carts.</p>
+                        <p class="text-gray-400 text-sm mb-4"><span class="text-yellow-400 font-semibold">Technologies:</span> Angular 17, Bootstrap, TypeScript</p>
+                        <a href="https://e-commerce-eta-seven-66.vercel.app/login" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-400 text-gray-900 py-2 px-6 rounded-full font-semibold text-sm shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300">View Project</a>
+                        <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">ECommerce-Project on GitHub</div>
                     </div>
-                </section>
-        
+                    <div class="project-card group p-6 bg-gray-700 rounded-xl shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-600 relative overflow-hidden animate-flip-in" data-delay="400">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-globe text-yellow-400 text-3xl mr-4"></i>
+                            <h3 class="text-xl font-semibold text-yellow-400">Website Project</h3>
+                        </div>
+                        <p class="text-gray-300 text-lg mb-4">Built a modern website with advanced features for user engagement and product showcasing.</p>
+                        <p class="text-gray-400 text-sm mb-4"><span class="text-yellow-400 font-semibold">Technologies:</span> Angular v19, TypeScript, Tailwind v4, Flowbite</p>
+                        <a href="https://e-commerce-19.vercel.app/#/login" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-400 text-gray-900 py-2 px-6 rounded-full font-semibold text-sm shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300">View Project</a>
+                        <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Website-Project on GitHub</div>
+                    </div>
+                    <div class="project-card group p-6 bg-gray-700 rounded-xl shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-600 relative overflow-hidden animate-flip-in" data-delay="600">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-comments text-yellow-400 text-3xl mr-4"></i>
+                            <h3 class="text-xl font-semibold text-yellow-400">Social App</h3>
+                        </div>
+                        <p class="text-gray-300 text-lg mb-4">A dynamic Angular social app enabling real-time chat, user interaction, profile management, media sharing, and seamless communication across devices.</p>
+                        <p class="text-gray-400 text-sm mb-4"><span class="text-yellow-400 font-semibold">Technologies:</span> Angular v19, TypeScript, NgBootstrap</p>
+                        <a href="https://social-app-dun-beta.vercel.app/login" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-400 text-gray-900 py-2 px-6 rounded-full font-semibold text-sm shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300">View Project</a>
+                        <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Social-App on GitHub</div>
+                    </div>
+                    <div class="project-card group p-6 bg-gray-700 rounded-xl shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-600 relative overflow-hidden animate-flip-in" data-delay="800">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-code text-yellow-400 text-3xl mr-4"></i>
+                            <h3 class="text-xl font-semibold text-yellow-400">jQuery Website</h3>
+                        </div>
+                        <p class="text-gray-300 text-lg mb-4">A simple jQuery website utilizing jQuery for easy DOM manipulation, enhancing interactivity and user experience with animations.</p>
+                        <p class="text-gray-400 text-sm mb-4"><span class="text-yellow-400 font-semibold">Technologies:</span> jQuery, Bootstrap</p>
+                        <a href="https://j-query-three.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-400 text-gray-900 py-2 px-6 rounded-full font-semibold text-sm shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300">View Project</a>
+                        <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">jQuery Project on GitHub</div>
+                    </div>
+                    <div class="project-card group p-6 bg-gray-700 rounded-xl shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-600 relative overflow-hidden animate-flip-in" data-delay="800">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-gamepad text-yellow-400 text-3xl mr-4"></i>
+                            <h3 class="text-xl font-semibold text-yellow-400">Game OOP</h3>
+                        </div>
+                        <p class="text-gray-300 text-lg mb-4">Created a game website using object-oriented programming and APIs to manage user interactions and dynamic content.</p>
+                        <p class="text-gray-400 text-sm mb-4"><span class="text-yellow-400 font-semibold">Technologies:</span> OOP JavaScript, Bootstrap</p>
+                        <a href="https://game-seven-dun.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-400 text-gray-900 py-2 px-6 rounded-full font-semibold text-sm shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300">View Project</a>
+                        <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Game OOP Project on GitHub</div>
+                    </div>
+                    <div class="project-card group p-6 bg-gray-700 rounded-xl shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-600 relative overflow-hidden animate-flip-in" data-delay="800">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-utensils text-yellow-400 text-3xl mr-4"></i>
+                            <h3 class="text-xl font-semibold text-yellow-400">Yummy</h3>
+                        </div>
+                        <p class="text-gray-300 text-lg mb-4">A culinary website offering recipes, cooking tips, and food blogs for enthusiasts.</p>
+                        <p class="text-gray-400 text-sm mb-4"><span class="text-yellow-400 font-semibold">Technologies:</span> HTML, Bootstrap, JavaScript</p>
+                        <a href="https://yummy-livid-five.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-400 text-gray-900 py-2 px-6 rounded-full font-semibold text-sm shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300">View Project</a>
+                        <div class="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Yummy Project on GitHub</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <!-- Education -->
+        <!-- Education -->
         <section id="education" class="content-section py-12 sm:py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl shadow-2xl overflow-hidden">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-12 sm:mb-16">
@@ -447,7 +424,6 @@
                     <div class="w-16 sm:w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
                 </div>
                 <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
-                    <!-- Education Timeline -->
                     <div class="lg:w-2/3 relative">
                         <div class="absolute left-4 sm:left-6 top-0 bottom-0 w-1 bg-yellow-400 rounded-full opacity-30 transform -translate-x-1/2 hidden sm:block"></div>
                         <ul class="space-y-6 sm:space-y-8 pl-0 sm:pl-12">
@@ -464,7 +440,7 @@
                                             <span class="text-yellow-400/80 bg-yellow-400/10 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap">Jun 2024 – Feb 2025</span>
                                         </div>
                                         <p class="text-gray-300 text-base sm:text-lg mt-1 font-medium">Route Academy</p>
-                                        <p class="education-detail text-gray-400 text-sm sm:text-base mt-2 sm:mt-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-y-0 translate-y-2">Mastered modern frontend technologies including Angular, JavaScript, TypeScript, and Tailwind CSS. Developed responsive web applications with focus on accessibility and performance optimization.</p>
+                                        <p class="education-detail text-gray-400 text-sm sm:text-base mt-2 sm:mt-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-y-0 translate-y-2">Mastered modern frontend technologies including Angular, JavaScript, TypeScript, and Tailwind CSS.</p>
                                     </div>
                                 </div>
                                 <div class="absolute -left-5 sm:-left-6 top-1/2 transform -translate-y-1/2 w-3 sm:w-4 h-3 sm:h-4 bg-yellow-400 rounded-full z-20 shadow-lg sm:block hidden"></div>
@@ -482,7 +458,7 @@
                                             <span class="text-yellow-400/80 bg-yellow-400/10 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap">Jan 2025 – Mar 2025</span>
                                         </div>
                                         <p class="text-gray-300 text-base sm:text-lg mt-1 font-medium">Code Alpha</p>
-                                        <p class="education-detail text-gray-400 text-sm sm:text-base mt-2 sm:mt-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-y-0 translate-y-2">Intensive training program focusing on HTML5, CSS3, and modern JavaScript (ES6+). Built responsive, interactive web interfaces with emphasis on cross-browser compatibility and mobile-first design principles.</p>
+                                        <p class="education-detail text-gray-400 text-sm sm:text-base mt-2 sm:mt-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-y-0 translate-y-2">Focused on HTML5, CSS3, and modern JavaScript (ES6+), building responsive web interfaces.</p>
                                     </div>
                                 </div>
                                 <div class="absolute -left-5 sm:-left-6 top-1/2 transform -translate-y-1/2 w-3 sm:w-4 h-3 sm:h-4 bg-yellow-400 rounded-full z-20 shadow-lg sm:block hidden"></div>
@@ -500,14 +476,13 @@
                                             <span class="text-yellow-400/80 bg-yellow-400/10 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap">2019 – 2023</span>
                                         </div>
                                         <p class="text-gray-300 text-base sm:text-lg mt-1 font-medium">Al-Azhar University</p>
-                                        <p class="education-detail text-gray-400 text-sm sm:text-base mt-2 sm:mt-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-y-0 translate-y-2">Acquired comprehensive business knowledge with focus on strategic management, problem-solving, and data analysis. Developed transferable skills in project coordination, team leadership, and data-driven decision making.</p>
+                                        <p class="education-detail text-gray-400 text-sm sm:text-base mt-2 sm:mt-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-y-0 translate-y-2">Gained skills in strategic management, problem-solving, and data analysis.</p>
                                     </div>
                                 </div>
                                 <div class="absolute -left-5 sm:-left-6 top-1/2 transform -translate-y-1/2 w-3 sm:w-4 h-3 sm:h-4 bg-yellow-400 rounded-full z-20 shadow-lg sm:block hidden"></div>
                             </li>
                         </ul>
                     </div>
-                    <!-- Languages Section -->
                     <div class="lg:w-1/3">
                         <div class="bg-gray-800/50 backdrop-blur-sm p-6 sm:p-8 rounded-xl border border-gray-700 shadow-lg animate-flip-in" data-delay="300">
                             <div class="text-center mb-6 sm:mb-8">
@@ -549,7 +524,6 @@
             </div>
         </section>
 
-
         <!-- Contact -->
         <section id="contact" class="content-section py-20 bg-gradient-to-r from-gray-900 to-blue-900 rounded-2xl shadow-2xl relative overflow-hidden">
             <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M0 0h2v2H0zM4 4h2v2H4zM8 8h2v2H8zM12 12h2v2h-2zM16 16h2v2h-2z\"/%3E%3C/g%3E%3C/svg%3E')]"></div>
@@ -560,10 +534,10 @@
                 </div>
                 <p class="text-xl text-gray-200 animate-flip-in" data-delay="200">Feel free to reach out via the following channels or use the form below:</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <div class="contact-card group p-6 bg-gray-750 rounded-xl shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-gray-700 hover:to-gray-600 animate-flip-in" data-delay="400">
+                    <div class="contact-card group p-6 bg-gray-700 rounded-xl shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-gray-700 hover:to-gray-600 animate-flip-in" data-delay="400">
                         <div class="flex items-center justify-center space-x-4"><i class="fas fa-phone text-yellow-400 text-3xl"></i><div><p class="text-white font-semibold text-lg">Phone</p><a href="tel:01002416804" class="text-yellow-400 hover:text-yellow-300 transition-colors duration-300">0100 24 16 804</a><br><a href="tel:01500300090" class="text-yellow-400 hover:text-yellow-300 transition-colors duration-300">01500 3000 90</a></div></div>
                     </div>
-                    <div class="contact-card group p-6 bg-gray-750 rounded-xl shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-gray-700 hover:to-gray-600 animate-flip-in" data-delay="600">
+                    <div class="contact-card group p-6 bg-gray-700 rounded-xl shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-gray-700 hover:to-gray-600 animate-flip-in" data-delay="600">
                         <div class="flex items-center justify-center space-x-4"><i class="fab fa-whatsapp text-yellow-400 text-3xl"></i><div><p class="text-white font-semibold text-lg">WhatsApp</p><a href="https://wa.me/+201002416804" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:text-yellow-300 transition-colors duration-300">0100 241 6804</a></div></div>
                     </div>
                 </div>
@@ -596,26 +570,23 @@
                     <button type="submit" class="w-full bg-yellow-400 text-gray-900 py-4 rounded-lg font-semibold text-lg shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300">Send Message</button>
                     <p id="form-success" class="text-green-400 text-lg font-semibold opacity-0 transition-opacity duration-500">Message Sent Successfully!</p>
                 </form>
-                
             </div>
         </section>
     </main>
 
-        <!-- Footer -->
-    <footer class="footer-section py-12 bg-gradient-to-r from-gray-800 via-gray-900 to-black text-gray-400 shadow-lg relative overflow-hidden">
+    <!-- Footer -->
+    <footer class="footer-section py-8 sm:py-10 md:py-12 bg-gradient-to-r from-gray-800 via-gray-900 to-black text-gray-400 shadow-lg relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"10\" height=\"10\" viewBox=\"0 0 10 10\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M0 0h1v1H0zM2 2h1v1H2zM4 4h1v1H4zM6 6h1v1H6zM8 8h1v1H8z\"/%3E%3C/g%3E%3C/svg%3E')]"></div>
-        <div class="container mx-auto px-6 text-center space-y-8 relative z-10">
+        <div class="container mx-auto px-4 sm:px-6 md:px-6 text-center space-y-6 sm:space-y-8 relative z-10">
             <div style="position: relative;">
-                <h2 style="font-size: 100px; font-weight: 900; color: #f0f0f0; text-align: center; text-shadow: 3px 3px 6px rgba(50, 50, 50, 0.7); margin: 0; font-family: 'Arial', sans-serif; position: relative; z-index: 1;">End</h2>
-                <div style="position: absolute; top: 20px; left: 0; width: 100%; height: 100%; opacity: 0.08; font-size: 250px; color: #f0f0f0; text-align: center; z-index: 0; font-family: 'Arial', sans-serif; line-height: 1;">END</div>
+                <h2 style="font-size: clamp(40px, 10vw, 60px); font-weight: 900; color: #f0f0f0; text-align: center; text-shadow: 3px 3px 6px rgba(50, 50, 50, 0.7); margin: 0; font-family: 'Arial', sans-serif; position: relative; z-index: 1;">End</h2>
+                <div style="position: absolute; top: clamp(8px, 2vw, 12px); left: 0; width: 100%; height: 100%; opacity: 0.08; font-size: clamp(80px, 20vw, 120px); color: #f0f0f0; text-align: center; z-index: 0; font-family: 'Arial', sans-serif; line-height: 1;">END</div>
             </div>
-            <p class="text-lg group transition-all duration-300 hover:text-gray-300 animate-flip-in" data-delay="600">© 2025 Ahmed Maged Anan. All rights reserved.</p>
-            <a href="#home" class="inline-block bg-yellow-400 text-gray-900 py-2 px-6 rounded-full font-semibold text-sm shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300 animate-flip-in" data-delay="800">Back to Top</a>
+            <p class="text-base sm:text-lg group transition-all duration-300 hover:text-gray-300 animate-flip-in" data-delay="600">© 2025 Ahmed Maged Anan. All rights reserved.</p>
+            <a href="#home" class="inline-block bg-yellow-400 text-gray-900 py-1.5 sm:py-2 px-4 sm:px-6 rounded-full font-semibold text-sm sm:text-sm md:text-sm shadow-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300 animate-flip-in" data-delay="800">Back to Top</a>
         </div>
     </footer>
 
-        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-        <script src="main.js" defer></script>
-        <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92c8fcb409f844ea',t:'MTc0NDAyMzI2OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-    </body>
+    <script src="main.js" defer></script>
+</body>
 </html>
