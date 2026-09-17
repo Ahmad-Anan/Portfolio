@@ -54,27 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const animatedElements = entry.target.querySelectorAll('.animate-flip-in');
                 animatedElements.forEach(el => el.classList.add('group'));
 
-                // Skills Animation
-                if (entry.target.id === 'skills') {
-                    const skillCards = entry.target.querySelectorAll('.skill-card');
-                    skillCards.forEach((card, index) => {
-                        const progressFill = card.querySelector('.progress-fill');
-                        const width = progressFill.dataset.width;
-                        progressFill.style.width = width; // Set initial width
-                        setTimeout(() => progressFill.classList.add('animate-elastic-bounce'), index * 100);
-
-                        card.addEventListener('mouseenter', () => {
-                            progressFill.classList.remove('animate-elastic-bounce');
-                            progressFill.style.width = '0';
-                            requestAnimationFrame(() => {
-                                progressFill.classList.add('animate-elastic-bounce');
-                                progressFill.style.width = width;
-                            });
-                        });
-                    });
-                }
-                
-
                 // Back to Top
                 if (entry.target.classList.contains('footer-section')) {
                     const backToTop = entry.target.querySelector('a[href="#home"]');
@@ -102,15 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.querySelectorAll('.lazy-load').forEach(img => imgObserver.observe(img));
 });
-
-// Add CSS class for elastic bounce animation
-const styleSheet = document.createElement('style');
-styleSheet.textContent = `
-    .animate-elastic-bounce {
-        animation: elasticBounce 0.8s ease-out forwards;
-    }
-`;
-document.head.appendChild(styleSheet);
 
 // Image enlargement
 function toggleEnlargeImage(imgElement) {
@@ -151,18 +121,6 @@ document.getElementById('menu-toggle').addEventListener('click', function() {
         }, 500);
     }
     this.classList.toggle('open');
-});
-
-// Progress bars on hover
-document.querySelectorAll('.skill-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        const fill = card.querySelector('.progress-fill');
-        fill.style.width = fill.dataset.width;
-    });
-    card.addEventListener('mouseleave', () => {
-        const fill = card.querySelector('.progress-fill');
-        fill.style.width = '0';
-    });
 });
 
 // Footer year
