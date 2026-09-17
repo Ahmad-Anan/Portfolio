@@ -75,20 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 
 
-                // Contact Form
-                if (entry.target.id === 'contact') {
-                    const contactForm = document.getElementById('contact-form');
-                    const formSuccess = document.getElementById('form-success');
-                    contactForm.addEventListener('submit', (e) => {
-                        e.preventDefault();
-                        formSuccess.style.opacity = '1';
-                        setTimeout(() => {
-                            formSuccess.style.opacity = '0';
-                            contactForm.reset();
-                        }, 3000);
-                    });
-                }
-
                 // Back to Top
                 if (entry.target.classList.contains('footer-section')) {
                     const backToTop = entry.target.querySelector('a[href="#home"]');
@@ -179,12 +165,43 @@ document.querySelectorAll('.skill-card').forEach(card => {
     });
 });
 
-// Form submission
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+// Footer year
+const currentYearEl = document.getElementById('current-year');
+if (currentYearEl) currentYearEl.textContent = new Date().getFullYear();
+
+// Form submission (Formspree)
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    const submitButton = document.getElementById('contact-submit');
     const successMessage = document.getElementById('form-success');
-    successMessage.classList.add('opacity-100');
-    setTimeout(() => {
-        successMessage.classList.remove('opacity-100');
-    }, 3000);
-});
+    const errorMessage = document.getElementById('form-error');
+
+    contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        successMessage.style.opacity = '0';
+        errorMessage.style.opacity = '0';
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: { Accept: 'application/json' }
+            });
+
+            if (response.ok) {
+                successMessage.style.opacity = '1';
+                contactForm.reset();
+                setTimeout(() => { successMessage.style.opacity = '0'; }, 5000);
+            } else {
+                errorMessage.style.opacity = '1';
+            }
+        } catch (err) {
+            errorMessage.style.opacity = '1';
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Message';
+        }
+    });
+}
