@@ -1,15 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("Portfolio Loaded Successfully 🚀");
-
     // Mobile Menu Toggle
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = menuToggle.querySelector('i');
+    let menuOpen = false;
+    let menuHideTimer;
     menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
-        menuToggle.classList.toggle('open');
-        const icon = menuToggle.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
+        const opening = !menuOpen;
+        menuOpen = opening;
+        clearTimeout(menuHideTimer);
+        if (opening) {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => mobileMenu.classList.add('open'), 10);
+        } else {
+            mobileMenu.classList.remove('open');
+            menuHideTimer = setTimeout(() => mobileMenu.classList.add('hidden'), 500);
+        }
+        menuToggle.classList.toggle('open', opening);
+        menuToggle.setAttribute('aria-expanded', String(opening));
+        menuIcon.classList.toggle('fa-bars', !opening);
+        menuIcon.classList.toggle('fa-times', opening);
     });
 
     // Throttle Function for Scroll Events
@@ -53,78 +63,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.style.opacity = '1';
                 const animatedElements = entry.target.querySelectorAll('.animate-flip-in');
                 animatedElements.forEach(el => el.classList.add('group'));
-
-                // Back to Top
-                if (entry.target.classList.contains('footer-section')) {
-                    const backToTop = entry.target.querySelector('a[href="#home"]');
-                    backToTop.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    });
-                }
             }
         });
     }, { threshold: 0.2 });
 
     document.querySelectorAll('.content-section, .footer-section, #home').forEach(section => observer.observe(section));
 
-    // Lazy Load Images
-    const imgObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.add('loaded');
-                imgObserver.unobserve(img);
-            }
-        });
+    // Back to Top
+    const backToTop = document.querySelector('.footer-section a[href="#home"]');
+    backToTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-    document.querySelectorAll('.lazy-load').forEach(img => imgObserver.observe(img));
-});
 
-// Image enlargement
-function toggleEnlargeImage(imgElement) {
+    // Image enlargement
+    const profilePhoto = document.getElementById('profile-photo');
     const overlay = document.getElementById('image-overlay');
     const enlargedImage = document.getElementById('enlarged-image');
-    
-    enlargedImage.src = imgElement.src;
-    
-    overlay.classList.remove('hidden');
-    setTimeout(() => {
-        overlay.classList.add('show');
-    }, 10);
-}
 
-function closeEnlargedImage(event) {
-    if (event.target.id !== 'enlarged-image') {
-        const overlay = document.getElementById('image-overlay');
+    profilePhoto.addEventListener('click', () => {
+        enlargedImage.src = profilePhoto.currentSrc || profilePhoto.src;
+        overlay.classList.remove('hidden');
+        setTimeout(() => overlay.classList.add('show'), 10);
+    });
+
+    overlay.addEventListener('click', (event) => {
+        if (event.target === enlargedImage) return;
         overlay.classList.remove('show');
-        
-        setTimeout(() => {
-            overlay.classList.add('hidden');
-        }, 500);
-    }
-}
-
-// Module scope isn't global — expose the handlers used by inline onclick attributes.
-window.toggleEnlargeImage = toggleEnlargeImage;
-window.closeEnlargedImage = closeEnlargedImage;
-
-// Mobile menu toggle
-document.getElementById('menu-toggle').addEventListener('click', function() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.remove('hidden');
-        setTimeout(() => {
-            mobileMenu.classList.add('open');
-        }, 10);
-    } else {
-        mobileMenu.classList.remove('open');
-        setTimeout(() => {
-            mobileMenu.classList.add('hidden');
-        }, 500);
-    }
-    this.classList.toggle('open');
+        setTimeout(() => overlay.classList.add('hidden'), 500);
+    });
 });
 
 // Footer year
