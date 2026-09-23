@@ -1,7 +1,7 @@
 // Build-time templates for the repeated blocks in index.html.
 // `html` escapes every interpolated value unless it is itself `html` output,
 // so content from data.js can never inject markup.
-import { nav, social, skills, projects, education } from './data.js';
+import { nav, social, skills, projects, earlierWork, education } from './data.js';
 
 class Markup {
   constructor(value) { this.value = value; }
@@ -29,10 +29,12 @@ const socialLinks = social.map(({ icon, label, tooltip, href }) => html`
   </a>`);
 
 const skillCards = skills.map(({ icon, name, note }) => html`
-  <li class="skill-card card card-interactive relative flex items-center gap-4">
-    <i class="${icon} leading-icon" aria-hidden="true"></i>
-    <span class="font-medium">${name}</span>
-    <span class="tooltip">${note}</span>
+  <li class="card flex items-start gap-4">
+    <i class="${icon} leading-icon mt-0.5" aria-hidden="true"></i>
+    <div>
+      <p class="font-medium">${name}</p>
+      <p class="text-sm text-muted mt-1">${note}</p>
+    </div>
   </li>`);
 
 const projectCards = projects.map(({ icon, title, description, tags, demo, source }) => html`
@@ -51,7 +53,17 @@ const projectCards = projects.map(({ icon, title, description, tags, demo, sourc
     </div>
   </article>`);
 
-const educationCards = education.map(({ icon, title, school, period, description }) => html`
+const earlierWorkRows = earlierWork.map(({ title, summary, demo, source }) => html`
+  <li class="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-6 py-4">
+    <h4 class="font-medium md:w-40 shrink-0">${title}</h4>
+    <p class="text-muted flex-1">${summary}</p>
+    <p class="flex gap-4 text-sm shrink-0">
+      <a href="${demo}"${external(demo)} class="text-link">Live Demo</a>
+      <a href="${source}"${external(source)} class="text-link">GitHub</a>
+    </p>
+  </li>`);
+
+const educationCards =education.map(({ icon, title, school, period, description }) => html`
   <li class="card flex flex-col sm:flex-row items-start gap-4">
     <i class="${icon} leading-icon mt-1" aria-hidden="true"></i>
     <div class="flex-1">
@@ -69,6 +81,7 @@ export const partials = {
   'social-links': socialLinks,
   'skill-cards': skillCards,
   'project-cards': projectCards,
+  'earlier-work': earlierWorkRows,
   'education-cards': educationCards,
 };
 

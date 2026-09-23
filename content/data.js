@@ -19,25 +19,21 @@ export const social = [
 ];
 
 export const skills = [
-  { icon: 'fas fa-laptop-code', name: 'Software Developer', note: 'Versatile Software Engineer building efficient, scalable, and maintainable software solutions.' },
-  { icon: 'fas fa-layer-group', name: 'Front-End Developer', note: 'Skilled Front-End Developer crafting responsive, modern, and user-friendly interfaces.' },
-  { icon: 'fab fa-angular', name: 'Angular', note: 'Expert in building scalable SPA applications.' },
-  { icon: 'fas fa-code', name: 'TypeScript', note: 'Strong typing for robust applications.' },
-  { icon: 'fab fa-js', name: 'JavaScript', note: 'Proficient in ES6+ and dynamic scripting.' },
-  { icon: 'fas fa-code', name: 'jQuery', note: 'Efficient DOM manipulation and event handling.' },
-  { icon: 'fas fa-wind', name: 'TailwindCSS', note: 'Skilled in utility-first CSS for rapid UI design.' },
-  { icon: 'fab fa-html5', name: 'HTML5', note: 'Mastered semantic markup and accessibility.' },
-  { icon: 'fab fa-css3', name: 'CSS3', note: 'Advanced animations and responsive layouts.' },
-  { icon: 'fab fa-sass', name: 'SASS', note: 'Advanced CSS preprocessing with variables and mixins.' },
-  { icon: 'fas fa-cubes', name: 'PrimeNG', note: 'Proficient in Angular UI component library.' },
-  { icon: 'fab fa-bootstrap', name: 'Bootstrap', note: 'Responsive grid system and components.' },
-  { icon: 'fas fa-cubes', name: 'NgBootstrap', note: 'Bootstrap integration with Angular.' },
-  { icon: 'fas fa-layer-group', name: 'Flowbite', note: 'Tailwind-based component library expertise.' },
-  { icon: 'fab fa-figma', name: 'Figma', note: 'UI/UX design and prototyping.' },
-  { icon: 'fas fa-pencil-ruler', name: 'UI/UX Developer', note: 'User-centered design principles.' },
-  { icon: 'fas fa-cogs', name: 'SOLID', note: 'Applying SOLID principles for clean code.' },
-  { icon: 'fas fa-vial', name: 'Unit Testing (Jasmine)', note: 'Testing Angular apps with Jasmine.' },
-  { icon: 'fab fa-github', name: 'Git & GitHub', note: 'Version control and collaboration expert.' },
+  { icon: 'fab fa-angular', name: 'Angular', note: 'Building SPAs with Signals, zoneless change detection, and SSR.' },
+  { icon: 'fas fa-code', name: 'TypeScript', note: 'Typed services, models, and components, structured with SOLID principles.' },
+  { icon: 'fab fa-js', name: 'JavaScript', note: 'Modern ES6+: modules, classes, and async/await.' },
+  { icon: 'fas fa-code', name: 'jQuery', note: 'DOM manipulation, events, and animations.' },
+  { icon: 'fas fa-wind', name: 'TailwindCSS', note: 'Utility-first styling with shared design tokens.' },
+  { icon: 'fab fa-html5', name: 'HTML5', note: 'Semantic, accessible markup.' },
+  { icon: 'fab fa-css3', name: 'CSS3', note: 'Responsive layouts with Grid and Flexbox, plus transitions.' },
+  { icon: 'fab fa-sass', name: 'SASS', note: 'Variables, mixins, and partials for organized stylesheets.' },
+  { icon: 'fas fa-cubes', name: 'PrimeNG', note: 'Building Angular interfaces from PrimeNG components.' },
+  { icon: 'fab fa-bootstrap', name: 'Bootstrap', note: 'Responsive grid and components.' },
+  { icon: 'fas fa-cubes', name: 'NgBootstrap', note: 'Bootstrap components as native Angular directives.' },
+  { icon: 'fas fa-layer-group', name: 'Flowbite', note: 'Tailwind-based UI components.' },
+  { icon: 'fab fa-figma', name: 'Figma', note: 'Turning UI/UX designs into components and prototyping layouts.' },
+  { icon: 'fas fa-vial', name: 'Unit Testing (Jasmine)', note: 'Testing Angular components and services with Jasmine.' },
+  { icon: 'fab fa-github', name: 'Git & GitHub', note: 'Branching, pull requests, and version history.' },
 ];
 
 export const projects = [
@@ -57,37 +53,21 @@ export const projects = [
     demo: 'https://tawasol-two.vercel.app',
     source: 'https://github.com/Ahmad-Anan/tawasol',
   },
+];
+
+// Earlier course projects: one line each under Projects, without cards.
+export const earlierWork = [
   {
-    icon: 'fas fa-code',
-    title: 'jQuery Website',
-    description: 'A simple jQuery website utilizing jQuery for easy DOM manipulation, enhancing interactivity and user experience with animations.',
-    tags: ['jQuery', 'Bootstrap'],
-    demo: 'https://j-query-three.vercel.app/',
-    source: 'https://github.com/Ahmad-Anan/jQuery',
-  },
-  {
-    icon: 'fas fa-gamepad',
-    title: 'Game OOP',
-    description: 'Created a game website using object-oriented programming and APIs to manage user interactions and dynamic content.',
-    tags: ['OOP JavaScript', 'Bootstrap'],
-    demo: 'https://game-seven-dun.vercel.app/',
-    source: 'https://github.com/Ahmad-Anan/Game',
-  },
-  {
-    icon: 'fas fa-utensils',
     title: 'Yummy',
-    description: 'A culinary website offering recipes, cooking tips, and food blogs for enthusiasts.',
-    tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    summary: 'Recipe browser on TheMealDB API: search, categories, cuisines, and ingredients.',
     demo: 'https://yummy-livid-five.vercel.app/',
     source: 'https://github.com/Ahmad-Anan/Yummy',
   },
   {
-    icon: 'fas fa-wind',
-    title: 'Weather-API',
-    description: 'Create a weather API Design a robust weather API utilizing and display weather to deliver real-time weather data.',
-    tags: ['HTML', 'Bootstrap', 'JavaScript', 'OOP', 'API'],
-    demo: 'https://weather-api-six-theta.vercel.app/',
-    source: 'https://github.com/Ahmad-Anan/Weather-API',
+    title: 'Game OOP',
+    summary: 'Free-to-play game catalog built with ES6 classes and modules.',
+    demo: 'https://game-seven-dun.vercel.app/',
+    source: 'https://github.com/Ahmad-Anan/Game',
   },
 ];
 
@@ -97,7 +77,7 @@ export const education = [
     title: 'Diploma in Frontend Development',
     school: 'Route Academy',
     period: 'Jun 2024 – Feb 2025',
-    description: 'Mastered modern frontend technologies including Angular, JavaScript, TypeScript, and Tailwind CSS.',
+    description: 'Built Angular applications with TypeScript, JavaScript, and Tailwind CSS through project-based coursework.',
   },
   {
     icon: 'fas fa-object-group',

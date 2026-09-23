@@ -137,10 +137,6 @@
         transition: border-color var(--speed);
     }
 
-    .card-interactive:hover {
-        border-color: var(--signal);
-    }
-
     /* The icon that leads a card or list row: one size and color everywhere. */
     .leading-icon {
         flex-shrink: 0;
@@ -316,8 +312,7 @@
 }
 
 .icon-link:hover .tooltip,
-.icon-link:focus-visible .tooltip,
-.skill-card:hover .tooltip {
+.icon-link:focus-visible .tooltip {
     opacity: 1;
 }
 
