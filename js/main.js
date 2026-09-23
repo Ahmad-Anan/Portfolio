@@ -51,24 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', throttle(updateActiveLink, 100));
     updateActiveLink();
 
-    // Navbar Animation on Load
-    const navSection = document.querySelector('.nav-section');
-    navSection.style.opacity = '0';
-    setTimeout(() => navSection.style.opacity = '1', 100);
-
-    // Intersection Observer for Sections
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                const animatedElements = entry.target.querySelectorAll('.animate-flip-in');
-                animatedElements.forEach(el => el.classList.add('group'));
-            }
-        });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('.content-section, .footer-section, #home').forEach(section => observer.observe(section));
-
     // Back to Top
     const backToTop = document.querySelector('.footer-section a[href="#home"]');
     backToTop.addEventListener('click', (e) => {
