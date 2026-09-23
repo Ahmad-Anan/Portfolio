@@ -53,7 +53,12 @@
     </nav>
 
     <!-- Header -->
-    <header id="home" class="header-section relative flex items-center min-h-screen bg-cover bg-center overflow-hidden" style="background-image: url('/photo/2.png');">
+    <header id="home" class="header-section relative flex items-center min-h-screen overflow-hidden">
+        <!-- Hero background: the LCP image, so it loads eagerly at high priority -->
+        <picture>
+            <source srcset="/photo/2.webp" type="image/webp">
+            <img src="/photo/2.png" alt="" width="1200" height="673" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover">
+        </picture>
         <div class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 opacity-90 backdrop-blur-lg animate-bg-zoom"></div>
         <div class="pattern-diagonal absolute inset-0"></div>
         <div class="container mx-auto relative z-10 px-6 py-20 text-center">
@@ -100,7 +105,7 @@
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-16">
                     <div class="photo-wrapper animate-flip-in relative group" data-delay="0">
-                        <img src="/photo/1.jpeg" alt="Ahmed Maged Anan" class="w-40 h-40 md:w-56 md:h-56 object-cover rounded-full border-4 border-yellow-400 shadow-xl transition-transform duration-500 group-hover:shadow-2xl cursor-pointer" loading="lazy" onclick="toggleEnlargeImage(this)">
+                        <img src="/photo/1.jpeg" alt="Ahmed Maged Anan" class="w-40 h-40 md:w-56 md:h-56 object-cover rounded-full border-4 border-yellow-400 shadow-xl transition-transform duration-500 group-hover:shadow-2xl cursor-pointer" decoding="async" onclick="toggleEnlargeImage(this)">
                         <span class="absolute -top-2 -right-2 bg-yellow-400 text-gray-900 text-xs font-semibold px-3 py-1 rounded-full shadow-md animate-pulse">Available for Hire</span>
                         <div class="tooltip absolute bottom-full left-1/2 transform bg-gray-900 text-white text-sm p-3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none mb-2">Ahmed Maged Anan - Frontend Developer</div>
                     </div>
