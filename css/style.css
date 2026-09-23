@@ -1,3 +1,43 @@
+/* Only scan the files that actually use utilities, so unused classes never ship. */
+@import "tailwindcss" source(none);
+@source "../index.html";
+@source "../js";
+
+/* The site was designed against Tailwind v2's palette; pin it so v4's
+   retuned colors don't shift the brand yellow and grays. */
+@theme {
+    --color-gray-100: #F3F4F6;
+    --color-gray-200: #E5E7EB;
+    --color-gray-300: #D1D5DB;
+    --color-gray-400: #9CA3AF;
+    --color-gray-500: #6B7280;
+    --color-gray-600: #4B5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1F2937;
+    --color-gray-900: #111827;
+    --color-yellow-100: #FEF3C7;
+    --color-yellow-300: #FCD34D;
+    --color-yellow-400: #FBBF24;
+    --color-yellow-500: #F59E0B;
+    --color-yellow-600: #D97706;
+    --color-blue-900: #1E3A8A;
+    --color-green-400: #34D399;
+    --color-red-400: #F87171;
+}
+
+/* v2 preflight defaults that v4 dropped. */
+@layer base {
+    *, ::after, ::before, ::backdrop, ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+    input::placeholder, textarea::placeholder {
+        color: var(--color-gray-400);
+    }
+    button:not(:disabled), [role="button"]:not(:disabled) {
+        cursor: pointer;
+    }
+}
+
 :root {
     --primary: #FBBF24; /* Yellow-400 */
     --secondary: #2D3748; /* Gray-750 */
@@ -418,4 +458,16 @@ a.inline-block {
 /* Footer */
 .footer-section .group:hover {
     text-shadow: 0 0 8px rgba(251, 191, 36, 0.5);
+}
+/* Decorative background patterns */
+.pattern-diagonal {
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.pattern-steps {
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M0 0h2v2H0zM4 4h2v2H4zM8 8h2v2H8zM12 12h2v2h-2zM16 16h2v2h-2z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.pattern-steps-sm {
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M0 0h1v1H0zM2 2h1v1H2zM4 4h1v1H4zM6 6h1v1H6zM8 8h1v1H8z'/%3E%3C/g%3E%3C/svg%3E");
 }

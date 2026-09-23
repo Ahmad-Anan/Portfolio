@@ -106,6 +106,10 @@ function closeEnlargedImage(event) {
     }
 }
 
+// Module scope isn't global — expose the handlers used by inline onclick attributes.
+window.toggleEnlargeImage = toggleEnlargeImage;
+window.closeEnlargedImage = closeEnlargedImage;
+
 // Mobile menu toggle
 document.getElementById('menu-toggle').addEventListener('click', function() {
     const mobileMenu = document.getElementById('mobile-menu');
