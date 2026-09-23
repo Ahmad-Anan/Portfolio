@@ -7,6 +7,7 @@
       name="description"
       content="Portfolio of Ahmed Maged Anan, a skilled Frontend Developer specializing in Angular, JavaScript, and Tailwind CSS."
     />
+    <meta name="theme-color" content="#0E1013" />
     <link rel="canonical" href="https://portfolio-one-navy-65.vercel.app/" />
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -46,53 +47,44 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <!-- Precision type: Space Grotesk (headings), IBM Plex Sans (body), IBM Plex Mono (labels) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <!-- Updated to Font Awesome 6.5.1 for the latest icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
-  <body class="overflow-x-hidden">
+  <body class="overflow-x-clip">
+    <!-- "render:*" comments below are filled at build time from content/data.js (see content/render.js). -->
     <!-- Navigation -->
-    <nav class="nav-section sticky top-0 z-50 bg-ink border-b border-line">
+    <nav class="sticky top-0 z-50 bg-ink border-b border-line">
       <div class="container mx-auto px-6 h-16 flex justify-between items-center">
         <a href="#home" class="font-display font-bold text-lg tracking-tight">Ahmed Anan</a>
         <ul class="hidden md:flex gap-8 text-sm">
-          <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#profile" class="nav-link">Profile</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#education" class="nav-link">Edu & Lang</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <!-- render:nav-links -->
         </ul>
         <button
           id="menu-toggle"
+          type="button"
           aria-label="Toggle navigation menu"
           aria-controls="mobile-menu"
           aria-expanded="false"
-          class="md:hidden text-paper p-2 -mr-2"
+          class="md:hidden text-paper p-3 -mr-3"
         >
           <i class="fas fa-bars text-xl" aria-hidden="true"></i>
         </button>
       </div>
-      <div id="mobile-menu" class="hidden md:hidden bg-ink border-t border-line px-6 py-6">
-        <ul class="space-y-4 text-center">
-          <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#profile" class="nav-link">Profile</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#education" class="nav-link">Edu & Lang</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+      <div id="mobile-menu" class="md:hidden">
+        <ul class="border-t border-line px-6 py-6 space-y-4 text-center">
+          <!-- render:nav-links -->
         </ul>
       </div>
     </nav>
 
     <!-- Header -->
-    <header id="home" class="header-section relative flex items-center min-h-screen overflow-hidden border-b border-line">
+    <header id="home" class="relative flex items-center min-h-screen overflow-hidden border-b border-line">
       <!-- Hero background: the LCP image, so it loads eagerly at high priority -->
       <picture>
         <source srcset="/photo/2.webp" type="image/webp" />
@@ -113,27 +105,8 @@
           Crafting high-performance, user-centric web applications with modern technologies.
         </p>
         <a href="#profile" class="btn btn-solid mt-10">Learn More</a>
-        <div class="flex justify-center gap-8 mt-12">
-          <a href="https://www.linkedin.com/in/ahmed-anan-285364273/" target="_blank" rel="noopener noreferrer" aria-label="Ahmed Anan on LinkedIn" class="icon-link">
-            <i class="fab fa-linkedin" aria-hidden="true"></i>
-            <span class="tooltip">Anan-LinkedIn</span>
-          </a>
-          <a href="https://github.com/Ahmad-Anan" target="_blank" rel="noopener noreferrer" aria-label="Ahmed Anan on GitHub" class="icon-link">
-            <i class="fab fa-github" aria-hidden="true"></i>
-            <span class="tooltip">Anan-GitHub</span>
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=100011629367323" target="_blank" rel="noopener noreferrer" aria-label="Ahmed Anan on Facebook" class="icon-link">
-            <i class="fab fa-facebook" aria-hidden="true"></i>
-            <span class="tooltip">Anan-Facebook</span>
-          </a>
-          <a href="mailto:enan611@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email Ahmed Anan" class="icon-link">
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-            <span class="tooltip">Anan-Email</span>
-          </a>
-          <a href="https://wa.me/+201002416804" target="_blank" rel="noopener noreferrer" aria-label="Message Ahmed Anan on WhatsApp" class="icon-link">
-            <i class="fab fa-whatsapp" aria-hidden="true"></i>
-            <span class="tooltip">Anan-WhatsApp</span>
-          </a>
+        <div class="flex justify-center gap-3 mt-12">
+          <!-- render:social-links -->
         </div>
       </div>
     </header>
@@ -148,13 +121,24 @@
         </div>
         <div class="flex flex-col md:flex-row items-center md:items-start gap-12">
           <div class="shrink-0 flex flex-col items-center md:items-start gap-3">
-            <img
-              id="profile-photo"
-              src="/photo/1.jpeg"
-              alt="Ahmed Maged Anan"
-              decoding="async"
-              class="w-40 h-40 md:w-56 md:h-56 object-cover object-top rounded-md border border-line cursor-zoom-in transition-colors hover:border-signal"
-            />
+            <button
+              id="photo-trigger"
+              type="button"
+              aria-haspopup="dialog"
+              aria-controls="photo-dialog"
+              aria-label="Enlarge profile photo"
+              class="block rounded-md border border-line overflow-hidden cursor-zoom-in transition-colors hover:border-signal"
+            >
+              <img
+                src="/photo/1.jpeg"
+                alt="Ahmed Maged Anan"
+                width="864"
+                height="1184"
+                loading="lazy"
+                decoding="async"
+                class="w-40 h-40 md:w-56 md:h-56 object-cover object-top"
+              />
+            </button>
             <span class="tag text-paper whitespace-nowrap">Available for Hire</span>
           </div>
           <div class="flex-1 space-y-6 text-lg leading-relaxed">
@@ -174,11 +158,11 @@
               <p class="eyebrow mb-4">Experience includes</p>
               <ul class="space-y-4 text-base">
                 <li class="flex items-start gap-4">
-                  <i class="fas fa-shopping-cart text-muted mt-1.5 w-5 text-center" aria-hidden="true"></i>
+                  <i class="fas fa-shopping-cart leading-icon mt-0.5" aria-hidden="true"></i>
                   <span class="text-muted"><span class="text-paper font-medium">E-commerce Platforms:</span> Responsive online stores with advanced features like payment gateways and product filters.</span>
                 </li>
                 <li class="flex items-start gap-4">
-                  <i class="fas fa-comments text-muted mt-1.5 w-5 text-center" aria-hidden="true"></i>
+                  <i class="fas fa-comments leading-icon mt-0.5" aria-hidden="true"></i>
                   <span class="text-muted"><span class="text-paper font-medium">Real-time Social Apps:</span> Interactive platforms with chat, media sharing, and real-time updates.</span>
                 </li>
               </ul>
@@ -189,15 +173,16 @@
             </div>
           </div>
         </div>
-        <!-- Enlarged Image Overlay -->
-        <div id="image-overlay" class="fixed inset-0 bg-ink/90 flex items-center justify-center z-50 hidden">
+        <dialog id="photo-dialog" class="lightbox" aria-label="Profile photo">
           <img
-            id="enlarged-image"
-            src=""
-            alt="Enlarged Image"
-            class="max-w-[90%] max-h-[90%] object-contain rounded-md border border-line"
+            src="/photo/1.jpeg"
+            alt="Ahmed Maged Anan"
+            width="864"
+            height="1184"
+            loading="lazy"
+            class="block max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain rounded-md border border-line"
           />
-        </div>
+        </dialog>
       </section>
 
       <!-- Skills -->
@@ -206,103 +191,9 @@
           <p class="eyebrow mb-3">02</p>
           <h2 class="section-title reveal-scroll">Skills</h2>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fas fa-laptop-code text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">Software Developer</span>
-            <div class="tooltip">Versatile Software Engineer building efficient, scalable, and maintainable software solutions.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fas fa-layer-group text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">Front-End Developer</span>
-            <div class="tooltip">Skilled Front-End Developer crafting responsive, modern, and user-friendly interfaces.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fab fa-angular text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">Angular</span>
-            <div class="tooltip">Expert in building scalable SPA applications.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fas fa-code text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">TypeScript</span>
-            <div class="tooltip">Strong typing for robust applications.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fab fa-js text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">JavaScript</span>
-            <div class="tooltip">Proficient in ES6+ and dynamic scripting.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fas fa-code text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">jQuery</span>
-            <div class="tooltip">Efficient DOM manipulation and event handling.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fas fa-wind text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">TailwindCSS</span>
-            <div class="tooltip">Skilled in utility-first CSS for rapid UI design.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fab fa-html5 text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">HTML5</span>
-            <div class="tooltip">Mastered semantic markup and accessibility.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fab fa-css3 text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">CSS3</span>
-            <div class="tooltip">Advanced animations and responsive layouts.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fab fa-sass text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">SASS</span>
-            <div class="tooltip">Advanced CSS preprocessing with variables and mixins.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fas fa-cubes text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">PrimeNG</span>
-            <div class="tooltip">Proficient in Angular UI component library.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fab fa-bootstrap text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">Bootstrap</span>
-            <div class="tooltip">Responsive grid system and components.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fas fa-cubes text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">NgBootstrap</span>
-            <div class="tooltip">Bootstrap integration with Angular.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fas fa-layer-group text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">Flowbite</span>
-            <div class="tooltip">Tailwind-based component library expertise.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fab fa-figma text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">Figma</span>
-            <div class="tooltip">UI/UX design and prototyping.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fas fa-pencil-ruler text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">UI/UX Developer</span>
-            <div class="tooltip">User-centered design principles.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fas fa-cogs text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">SOLID</span>
-            <div class="tooltip">Applying SOLID principles for clean code.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fas fa-vial text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">Unit Testing (Jasmine)</span>
-            <div class="tooltip">Testing Angular apps with Jasmine.</div>
-          </div>
-          <div class="skill-card card card-interactive relative flex items-center gap-4">
-            <i class="fab fa-github text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-            <span class="font-medium">Git & GitHub</span>
-            <div class="tooltip">Version control and collaboration expert.</div>
-          </div>
-        </div>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <!-- render:skill-cards -->
+        </ul>
       </section>
 
       <!-- Projects -->
@@ -312,108 +203,7 @@
           <h2 class="section-title reveal-scroll">Projects</h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <article class="card flex flex-col">
-            <div class="flex items-center gap-3 mb-4">
-              <i class="fas fa-crown text-muted text-lg w-5 text-center" aria-hidden="true"></i>
-              <h3 class="text-xl">KingMart — Luxury E-Commerce Platform</h3>
-            </div>
-            <p class="text-muted mb-5">Architected a full-featured e-commerce platform in Angular 22 (Signals, Zoneless change detection, OnPush by default), built around a custom "quiet luxury" design system with a bespoke dark mode and full Arabic/English RTL support. Implemented Signal-based Cart and Wishlist services with SSR-safe auth guards, a Stripe-integrated checkout flow, and a custom quantity stepper.</p>
-            <ul class="flex flex-wrap gap-2 mb-6" aria-label="Technologies">
-              <li class="tag">Angular 22</li>
-              <li class="tag">TypeScript</li>
-              <li class="tag">Tailwind CSS v4</li>
-              <li class="tag">PrimeNG 22</li>
-              <li class="tag">Stripe</li>
-              <li class="tag">SSR</li>
-            </ul>
-            <div class="flex flex-wrap gap-3 mt-auto">
-              <a href="https://kingmart.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-solid">Live Demo</a>
-              <a href="https://github.com/Ahmad-Anan/kingmart" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost"><i class="fab fa-github" aria-hidden="true"></i>Source Code</a>
-            </div>
-          </article>
-          <article class="card flex flex-col">
-            <div class="flex items-center gap-3 mb-4">
-              <i class="fas fa-comments text-muted text-lg w-5 text-center" aria-hidden="true"></i>
-              <h3 class="text-xl">Tawasol — Social Media Platform</h3>
-            </div>
-            <p class="text-muted mb-5">Built a LinkedIn-style social platform end-to-end in Angular 22 (Zoneless, Signals, SSR) — authentication, a filterable infinite-scroll feed, profiles, threaded comments with likes and replies, bookmarks, and live notification badges backed by real REST APIs. Unified design-token color system audited for WCAG AA contrast in both themes.</p>
-            <ul class="flex flex-wrap gap-2 mb-6" aria-label="Technologies">
-              <li class="tag">Angular 22</li>
-              <li class="tag">TypeScript</li>
-              <li class="tag">Angular Material</li>
-              <li class="tag">Tailwind CSS v4</li>
-              <li class="tag">SSR</li>
-              <li class="tag">REST APIs</li>
-            </ul>
-            <div class="flex flex-wrap gap-3 mt-auto">
-              <a href="https://tawasol-two.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-solid">Live Demo</a>
-              <a href="https://github.com/Ahmad-Anan/tawasol" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost"><i class="fab fa-github" aria-hidden="true"></i>Source Code</a>
-            </div>
-          </article>
-          <article class="card flex flex-col">
-            <div class="flex items-center gap-3 mb-4">
-              <i class="fas fa-code text-muted text-lg w-5 text-center" aria-hidden="true"></i>
-              <h3 class="text-xl">jQuery Website</h3>
-            </div>
-            <p class="text-muted mb-5">A simple jQuery website utilizing jQuery for easy DOM manipulation, enhancing interactivity and user experience with animations.</p>
-            <ul class="flex flex-wrap gap-2 mb-6" aria-label="Technologies">
-              <li class="tag">jQuery</li>
-              <li class="tag">Bootstrap</li>
-            </ul>
-            <div class="flex flex-wrap gap-3 mt-auto">
-              <a href="https://j-query-three.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-solid">Live Demo</a>
-              <a href="https://github.com/Ahmad-Anan/jQuery" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost"><i class="fab fa-github" aria-hidden="true"></i>Source Code</a>
-            </div>
-          </article>
-          <article class="card flex flex-col">
-            <div class="flex items-center gap-3 mb-4">
-              <i class="fas fa-gamepad text-muted text-lg w-5 text-center" aria-hidden="true"></i>
-              <h3 class="text-xl">Game OOP</h3>
-            </div>
-            <p class="text-muted mb-5">Created a game website using object-oriented programming and APIs to manage user interactions and dynamic content.</p>
-            <ul class="flex flex-wrap gap-2 mb-6" aria-label="Technologies">
-              <li class="tag">OOP JavaScript</li>
-              <li class="tag">Bootstrap</li>
-            </ul>
-            <div class="flex flex-wrap gap-3 mt-auto">
-              <a href="https://game-seven-dun.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-solid">Live Demo</a>
-              <a href="https://github.com/Ahmad-Anan/Game" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost"><i class="fab fa-github" aria-hidden="true"></i>Source Code</a>
-            </div>
-          </article>
-          <article class="card flex flex-col">
-            <div class="flex items-center gap-3 mb-4">
-              <i class="fas fa-utensils text-muted text-lg w-5 text-center" aria-hidden="true"></i>
-              <h3 class="text-xl">Yummy</h3>
-            </div>
-            <p class="text-muted mb-5">A culinary website offering recipes, cooking tips, and food blogs for enthusiasts.</p>
-            <ul class="flex flex-wrap gap-2 mb-6" aria-label="Technologies">
-              <li class="tag">HTML</li>
-              <li class="tag">Bootstrap</li>
-              <li class="tag">JavaScript</li>
-            </ul>
-            <div class="flex flex-wrap gap-3 mt-auto">
-              <a href="https://yummy-livid-five.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-solid">Live Demo</a>
-              <a href="https://github.com/Ahmad-Anan/Yummy" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost"><i class="fab fa-github" aria-hidden="true"></i>Source Code</a>
-            </div>
-          </article>
-          <article class="card flex flex-col">
-            <div class="flex items-center gap-3 mb-4">
-              <i class="fas fa-wind text-muted text-lg w-5 text-center" aria-hidden="true"></i>
-              <h3 class="text-xl">Weather-API</h3>
-            </div>
-            <p class="text-muted mb-5">Create a weather API Design a robust weather API utilizing and display weather to deliver real-time weather data.</p>
-            <ul class="flex flex-wrap gap-2 mb-6" aria-label="Technologies">
-              <li class="tag">HTML</li>
-              <li class="tag">Bootstrap</li>
-              <li class="tag">JavaScript</li>
-              <li class="tag">OOP</li>
-              <li class="tag">API</li>
-            </ul>
-            <div class="flex flex-wrap gap-3 mt-auto">
-              <a href="https://weather-api-six-theta.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-solid">Live Demo</a>
-              <a href="https://github.com/Ahmad-Anan/Weather-API" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost"><i class="fab fa-github" aria-hidden="true"></i>Source Code</a>
-            </div>
-          </article>
+          <!-- render:project-cards -->
         </div>
       </section>
 
@@ -423,62 +213,22 @@
           <p class="eyebrow mb-3">04</p>
           <h2 class="section-title reveal-scroll">Education & Languages</h2>
         </div>
-        <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
-          <ul class="lg:w-2/3 space-y-4">
-            <li class="card">
-              <div class="flex flex-col sm:flex-row items-start gap-4">
-                <i class="fas fa-code text-muted text-lg mt-1 w-6 text-center" aria-hidden="true"></i>
-                <div class="flex-1">
-                  <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
-                    <h3 class="text-xl sm:text-2xl">Diploma in Frontend Development</h3>
-                    <span class="eyebrow whitespace-nowrap">Jun 2024 – Feb 2025</span>
-                  </div>
-                  <p class="mt-1">Route Academy</p>
-                  <p class="text-muted text-sm sm:text-base mt-3">Mastered modern frontend technologies including Angular, JavaScript, TypeScript, and Tailwind CSS.</p>
-                </div>
-              </div>
-            </li>
-            <li class="card">
-              <div class="flex flex-col sm:flex-row items-start gap-4">
-                <i class="fas fa-object-group text-muted text-lg mt-1 w-6 text-center" aria-hidden="true"></i>
-                <div class="flex-1">
-                  <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
-                    <h3 class="text-xl sm:text-2xl">Frontend Development Training</h3>
-                    <span class="eyebrow whitespace-nowrap">Jan 2025 – Mar 2025</span>
-                  </div>
-                  <p class="mt-1">Code Alpha</p>
-                  <p class="text-muted text-sm sm:text-base mt-3">Focused on HTML5, CSS3, and modern JavaScript (ES6+), building responsive web interfaces.</p>
-                </div>
-              </div>
-            </li>
-            <li class="card">
-              <div class="flex flex-col sm:flex-row items-start gap-4">
-                <i class="fas fa-graduation-cap text-muted text-lg mt-1 w-6 text-center" aria-hidden="true"></i>
-                <div class="flex-1">
-                  <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
-                    <h3 class="text-xl sm:text-2xl">Bachelor's in Business Administration</h3>
-                    <span class="eyebrow whitespace-nowrap">2019 – 2023</span>
-                  </div>
-                  <p class="mt-1">Al-Azhar University</p>
-                  <p class="text-muted text-sm sm:text-base mt-3">Gained skills in strategic management, problem-solving, and data analysis.</p>
-                </div>
-              </div>
-            </li>
+        <div class="grid grid-cols-1 lg:grid-cols-3 items-start gap-8 lg:gap-12">
+          <ul class="lg:col-span-2 space-y-4">
+            <!-- render:education-cards -->
           </ul>
-          <div class="lg:w-1/3">
-            <div class="card">
-              <h3 class="text-xl mb-4">Languages</h3>
-              <dl class="divide-y divide-line">
-                <div class="flex items-center justify-between gap-4 py-4">
-                  <dt class="font-medium">Arabic</dt>
-                  <dd class="eyebrow">Native</dd>
-                </div>
-                <div class="flex items-center justify-between gap-4 py-4">
-                  <dt class="font-medium">English</dt>
-                  <dd class="eyebrow">Fluent</dd>
-                </div>
-              </dl>
-            </div>
+          <div class="card">
+            <h3 class="text-xl mb-4">Languages</h3>
+            <dl class="divide-y divide-line">
+              <div class="flex items-center justify-between gap-4 py-4">
+                <dt class="font-medium">Arabic</dt>
+                <dd class="eyebrow">Native</dd>
+              </div>
+              <div class="flex items-center justify-between gap-4 py-4">
+                <dt class="font-medium">English</dt>
+                <dd class="eyebrow">Fluent</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </section>
@@ -489,56 +239,40 @@
           <p class="eyebrow mb-3">05</p>
           <h2 class="section-title reveal-scroll">Contact Me</h2>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-          <div class="space-y-10">
-          <p class="text-lg text-muted">Feel free to reach out via the following channels or use the form below:</p>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
-            <div class="card flex items-center gap-4">
-              <i class="fas fa-phone text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-              <div>
-                <p class="eyebrow mb-1">Phone</p>
-                <a href="tel:01002416804" class="text-link">0100 24 16 804</a>
+        <div class="grid grid-cols-1 lg:grid-cols-2 items-start gap-8 lg:gap-12">
+          <div class="space-y-8">
+            <p class="text-lg text-muted">Feel free to reach out directly or use the form.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="card flex items-center gap-4">
+                <i class="fas fa-phone leading-icon" aria-hidden="true"></i>
+                <div>
+                  <p class="eyebrow mb-1">Phone</p>
+                  <a href="tel:+201002416804" class="text-link">0100 24 16 804</a>
+                </div>
+              </div>
+              <div class="card flex items-center gap-4">
+                <i class="fas fa-envelope leading-icon" aria-hidden="true"></i>
+                <div class="min-w-0">
+                  <p class="eyebrow mb-1">Email</p>
+                  <a href="mailto:enan611@gmail.com" class="text-link break-all">enan611@gmail.com</a>
+                </div>
               </div>
             </div>
-            <div class="card flex items-center gap-4">
-              <i class="fab fa-whatsapp text-muted text-xl w-6 text-center" aria-hidden="true"></i>
-              <div>
-                <p class="eyebrow mb-1">WhatsApp</p>
-                <a href="https://wa.me/+201002416804" target="_blank" rel="noopener noreferrer" class="text-link">0100 241 6804</a>
-              </div>
+            <div class="flex gap-3 -ml-2.5">
+              <!-- render:social-links -->
             </div>
-          </div>
-          <div class="flex gap-8">
-            <a href="https://www.linkedin.com/in/ahmed-anan-285364273/" target="_blank" rel="noopener noreferrer" aria-label="Ahmed Anan on LinkedIn" class="icon-link">
-              <i class="fab fa-linkedin" aria-hidden="true"></i>
-              <span class="tooltip">Anan-LinkedIn</span>
-            </a>
-            <a href="https://github.com/Ahmad-Anan" target="_blank" rel="noopener noreferrer" aria-label="Ahmed Anan on GitHub" class="icon-link">
-              <i class="fab fa-github" aria-hidden="true"></i>
-              <span class="tooltip">Anan-GitHub</span>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=100011629367323" target="_blank" rel="noopener noreferrer" aria-label="Ahmed Anan on Facebook" class="icon-link">
-              <i class="fab fa-facebook" aria-hidden="true"></i>
-              <span class="tooltip">Anan-Facebook</span>
-            </a>
-            <a href="mailto:enan611@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email Ahmed Anan" class="icon-link">
-              <i class="fas fa-envelope" aria-hidden="true"></i>
-              <span class="tooltip">Anan-Email</span>
-            </a>
-            <a href="https://wa.me/+201002416804" target="_blank" rel="noopener noreferrer" aria-label="Message Ahmed Anan on WhatsApp" class="icon-link">
-              <i class="fab fa-whatsapp" aria-hidden="true"></i>
-              <span class="tooltip">Anan-WhatsApp</span>
-            </a>
-          </div>
           </div>
           <form id="contact-form" action="https://formspree.io/f/mvkgovov" method="POST" class="space-y-4">
-            <input type="text" id="name" name="name" placeholder="Your Name" required class="field" />
-            <input type="email" id="email" name="email" placeholder="Your Email" required class="field" />
-            <textarea id="message" name="message" placeholder="Your Message" rows="4" required class="field"></textarea>
+            <label for="name" class="sr-only">Your name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" autocomplete="name" required class="field" />
+            <label for="email" class="sr-only">Your email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" autocomplete="email" required class="field" />
+            <label for="message" class="sr-only">Your message</label>
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required class="field"></textarea>
             <!-- The page's single signal-colored call to action -->
             <button type="submit" id="contact-submit" class="btn btn-primary w-full py-4 disabled:opacity-60 disabled:cursor-not-allowed">Send Message</button>
-            <p id="form-success" class="font-medium opacity-0 transition-opacity duration-500" role="status" aria-live="polite">Message Sent Successfully!</p>
-            <p id="form-error" class="font-medium opacity-0 transition-opacity duration-500" role="alert" aria-live="assertive">
+            <p id="form-success" class="font-medium" role="status" hidden>Message Sent Successfully!</p>
+            <p id="form-error" class="font-medium" role="alert" hidden>
               Something went wrong. Please try again or email me directly at
               <a href="mailto:enan611@gmail.com" class="text-link">enan611@gmail.com</a>.
             </p>
@@ -548,9 +282,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer-section border-t border-line">
+    <footer class="border-t border-line">
       <div class="container mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-sm text-muted">© <span id="current-year">2025</span> Ahmed Maged Anan. All rights reserved.</p>
+        <p class="text-sm text-muted">© <span id="current-year">2026</span> Ahmed Maged Anan. All rights reserved.</p>
         <a href="#home" class="btn btn-sm btn-ghost">Back to Top</a>
       </div>
     </footer>

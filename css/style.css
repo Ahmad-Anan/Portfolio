@@ -1,10 +1,12 @@
 /* Only scan the files that actually use utilities, so unused classes never ship. */
 @import "tailwindcss" source(none);
 @source "../index.html";
-@source "../js";
+@source "../content";
 
 /* ── Precision design tokens ─────────────────────────────────────────── */
 :root {
+    color-scheme: dark;
+
     --ink: #0E1013;      /* page background */
     --surface: #16181C;  /* raised sections */
     --paper: #ECEBE7;    /* primary text */
@@ -12,6 +14,11 @@
     --line: #26292E;     /* every border/divider: 1px, never a shadow */
     --signal: #3E63E0;   /* the only accent: links, interactive states, one CTA */
     --signal-hover: #3354C4;
+    --on-signal: #fff;   /* text on --signal: paper on signal is below AA */
+
+    --radius: 6px;       /* sections, cards, images */
+    --radius-sm: 4px;    /* buttons, fields, tags */
+    --speed: 0.2s;       /* every hover/focus transition */
 }
 
 /* Replace Tailwind's palette entirely, so only the tokens above exist as color utilities. */
@@ -24,6 +31,8 @@
     --color-line: var(--line);
     --color-signal: var(--signal);
 
+    --radius-md: var(--radius);
+
     --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
     --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
     --font-display: "Space Grotesk", "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
@@ -32,6 +41,22 @@
 @layer base {
     *, ::after, ::before, ::backdrop, ::file-selector-button {
         border-color: var(--line);
+    }
+
+    /* In-page links land below the sticky 4rem nav. */
+    html {
+        scroll-padding-top: 4rem;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        html { scroll-behavior: smooth; }
+    }
+
+    /* Transitions still fire their end state, just instantly. */
+    @media (prefers-reduced-motion: reduce) {
+        *, ::before, ::after, ::backdrop {
+            transition-duration: 0s !important;
+        }
     }
 
     body {
@@ -68,20 +93,16 @@
     .panel {
         background: var(--surface);
         border: 1px solid var(--line);
-        border-radius: 6px;
+        border-radius: var(--radius);
         padding: 3.5rem 1.5rem;
-    }
 
-    @media (min-width: 768px) {
-        .panel { padding: 5rem 3rem; }
+        @variant md { padding: 5rem 3rem; }
     }
 
     .section-title {
         font-size: 2.25rem;
-    }
 
-    @media (min-width: 768px) {
-        .section-title { font-size: 3rem; }
+        @variant md { font-size: 3rem; }
     }
 
     /* Small uppercase mono details: section numbers, labels, dates, status */
@@ -103,7 +124,7 @@
         line-height: 1.4;
         color: var(--muted);
         border: 1px solid var(--line);
-        border-radius: 4px;
+        border-radius: var(--radius-sm);
         padding: 0.25rem 0.5rem;
     }
 
@@ -111,13 +132,22 @@
     .card {
         background: var(--ink);
         border: 1px solid var(--line);
-        border-radius: 6px;
+        border-radius: var(--radius);
         padding: 1.5rem;
-        transition: border-color 0.2s ease;
+        transition: border-color var(--speed);
     }
 
     .card-interactive:hover {
         border-color: var(--signal);
+    }
+
+    /* The icon that leads a card or list row: one size and color everywhere. */
+    .leading-icon {
+        flex-shrink: 0;
+        width: 1.5rem;
+        font-size: 1.25rem;
+        text-align: center;
+        color: var(--muted);
     }
 
     /* Buttons */
@@ -127,12 +157,12 @@
         justify-content: center;
         gap: 0.5rem;
         border: 1px solid transparent;
-        border-radius: 4px;
+        border-radius: var(--radius-sm);
         padding: 0.75rem 1.5rem;
         font-size: 0.9375rem;
         font-weight: 500;
         line-height: 1.25;
-        transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        transition: background-color var(--speed), border-color var(--speed), color var(--speed);
     }
 
     .btn-sm {
@@ -140,11 +170,11 @@
         font-size: 0.875rem;
     }
 
-    /* The single signal-colored call to action. White text: paper on signal is below AA. */
+    /* The single signal-colored call to action. */
     .btn-primary {
         background: var(--signal);
         border-color: var(--signal);
-        color: #fff;
+        color: var(--on-signal);
     }
 
     .btn-primary:hover {
@@ -161,7 +191,7 @@
     .btn-solid:hover {
         background: var(--signal);
         border-color: var(--signal);
-        color: #fff;
+        color: var(--on-signal);
     }
 
     .btn-ghost {
@@ -181,19 +211,24 @@
         text-decoration-color: var(--signal);
         text-decoration-thickness: 1px;
         text-underline-offset: 4px;
-        transition: text-decoration-thickness 0.2s ease;
+        transition: text-decoration-thickness var(--speed);
     }
 
     .text-link:hover {
         text-decoration-thickness: 2px;
     }
 
-    /* Icon-only links: graphics need 3:1, which signal meets (3.7:1) */
+    /* Icon-only links: a 44px touch target around a 24px glyph. Graphics need 3:1, which signal meets (3.7:1). */
     .icon-link {
         position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.75rem;
+        height: 2.75rem;
         color: var(--muted);
         font-size: 1.5rem;
-        transition: color 0.2s ease;
+        transition: color var(--speed);
     }
 
     .icon-link:hover, .icon-link:focus-visible {
@@ -207,8 +242,8 @@
         background: var(--ink);
         color: var(--paper);
         border: 1px solid var(--muted);
-        border-radius: 4px;
-        transition: border-color 0.2s ease;
+        border-radius: var(--radius-sm);
+        transition: border-color var(--speed);
     }
 
     .field:focus {
@@ -217,14 +252,15 @@
 }
 
 /* ── Navigation ──────────────────────────────────────────────────────── */
+/* main.js marks the link for the section in view with aria-current. */
 .nav-link {
     position: relative;
     padding-bottom: 4px;
     color: var(--muted);
-    transition: color 0.2s ease;
+    transition: color var(--speed);
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover, .nav-link[aria-current] {
     color: var(--paper);
 }
 
@@ -239,18 +275,22 @@
     transition: width 0.3s ease;
 }
 
-.nav-link.active::after { width: 100%; }
+.nav-link[aria-current]::after { width: 100%; }
 
+/* Closed menu is also visibility: hidden, so its links leave the tab order. */
 #mobile-menu {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 0.5s ease-in-out, opacity 0.3s ease;
+    visibility: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.3s ease, visibility 0s 0.5s;
 }
 
 #mobile-menu.open {
     max-height: 500px;
     opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
 }
 
 /* ── Tooltips ────────────────────────────────────────────────────────── */
@@ -265,40 +305,53 @@
     background: var(--ink);
     color: var(--paper);
     border: 1px solid var(--line);
-    border-radius: 4px;
-    font-family: var(--font-sans);
+    border-radius: var(--radius-sm);
     font-size: 0.75rem;
     line-height: 1.4;
     text-align: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease;
+    transition: opacity var(--speed);
     z-index: 10;
 }
 
-a:hover .tooltip,
-a:focus-visible .tooltip,
+.icon-link:hover .tooltip,
+.icon-link:focus-visible .tooltip,
 .skill-card:hover .tooltip {
     opacity: 1;
 }
 
-/* ── Image lightbox ──────────────────────────────────────────────────── */
-#image-overlay {
+/* ── Photo lightbox: a native <dialog>, faded in and out with @starting-style ── */
+.lightbox {
+    margin: auto;
+    max-width: none;
+    max-height: none;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    cursor: zoom-out;
     opacity: 0;
-    transition: opacity 0.4s ease-in-out;
-}
-
-#image-overlay.show {
-    opacity: 1;
-}
-
-#enlarged-image {
     transform: scale(0.96);
-    transition: transform 0.4s ease-in-out;
+    transition: opacity 0.3s, transform 0.3s, overlay 0.3s allow-discrete, display 0.3s allow-discrete;
 }
 
-#image-overlay.show #enlarged-image {
-    transform: scale(1);
+.lightbox[open] {
+    opacity: 1;
+    transform: none;
+}
+
+.lightbox::backdrop {
+    background: transparent;
+    transition: background-color 0.3s, overlay 0.3s allow-discrete, display 0.3s allow-discrete;
+}
+
+.lightbox[open]::backdrop {
+    background: color-mix(in srgb, var(--ink) 90%, transparent);
+}
+
+@starting-style {
+    .lightbox[open] { opacity: 0; transform: scale(0.96); }
+    .lightbox[open]::backdrop { background: transparent; }
 }
 
 /* ── Motion: headings only, and never dependent on JavaScript ────────── */
