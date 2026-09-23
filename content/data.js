@@ -14,7 +14,7 @@ export const social = [
   { icon: 'fab fa-linkedin', label: 'Ahmed Anan on LinkedIn', tooltip: 'Anan-LinkedIn', href: 'https://www.linkedin.com/in/ahmed-anan-285364273/' },
   { icon: 'fab fa-github', label: 'Ahmed Anan on GitHub', tooltip: 'Anan-GitHub', href: 'https://github.com/Ahmad-Anan' },
   { icon: 'fab fa-facebook', label: 'Ahmed Anan on Facebook', tooltip: 'Anan-Facebook', href: 'https://www.facebook.com/profile.php?id=100011629367323' },
-  { icon: 'fas fa-envelope', label: 'Email Ahmed Anan', tooltip: 'Anan-Email', href: 'mailto:enan611@gmail.com' },
+  { icon: 'fas fa-envelope', label: 'Email Ahmed Anan', tooltip: 'Anan-Email', href: 'mailto:ahmed.anan.dev@gmail.com' },
   { icon: 'fab fa-whatsapp', label: 'Message Ahmed Anan on WhatsApp', tooltip: 'Anan-WhatsApp', href: 'https://wa.me/+201002416804' },
 ];
 

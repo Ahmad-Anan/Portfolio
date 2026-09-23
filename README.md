@@ -79,7 +79,7 @@ To add a skill, project or course, add one object to `content/data.js`. The mark
 
 - GitHub: [@Ahmad-Anan](https://github.com/Ahmad-Anan)
 - LinkedIn: [ahmed-anan-285364273](https://linkedin.com/in/ahmed-anan-285364273)
-- Email: [enan611@gmail.com](mailto:enan611@gmail.com)
+- Email: [ahmed.anan.dev@gmail.com](mailto:ahmed.anan.dev@gmail.com)
 
 ---
 
@@ -166,6 +166,6 @@ npm run preview     # تشغيل نسخة الإنتاج على http://localhost
 
 - GitHub: [@Ahmad-Anan](https://github.com/Ahmad-Anan)
 - LinkedIn: [ahmed-anan-285364273](https://linkedin.com/in/ahmed-anan-285364273)
-- البريد الإلكتروني: [enan611@gmail.com](mailto:enan611@gmail.com)
+- البريد الإلكتروني: [ahmed.anan.dev@gmail.com](mailto:ahmed.anan.dev@gmail.com)
 
 </div>
