@@ -2,6 +2,7 @@
 // `html` escapes every interpolated value unless it is itself `html` output,
 // so content from data.js can never inject markup.
 import { nav, social, skills, projects, earlierWork, experience, education } from './data.js';
+import { caseStudies } from './case-studies.js';
 
 class Markup {
   constructor(value) { this.value = value; }
@@ -15,6 +16,10 @@ const toHtml = (value) =>
 
 const html = (strings, ...values) =>
   new Markup(strings.reduce((out, s, i) => out + toHtml(values[i - 1]) + s));
+
+// Escaped text in which `backticks` become <code>, for case-study prose.
+const prose = (text) =>
+  new Markup(escape(text).replace(/`([^`]+)`/g, '<code>$1</code>'));
 
 // External links open in a new tab; mailto:/tel: and in-page links don't.
 const external = (href) => (/^https?:/.test(href) ? html` target="_blank" rel="noopener noreferrer"` : '');
@@ -76,6 +81,64 @@ const timelineCard = ({ icon, title, place, period, description }) => html`
     </div>
   </li>`;
 
+const figure = ({ src, width, height, alt, caption, narrow }) => html`
+  <figure class="${narrow ? 'max-w-xs' : ''}">
+    <img src="${src}" alt="${alt}" width="${width}" height="${height}" loading="lazy" decoding="async" class="shot" />
+    <figcaption class="text-sm text-muted mt-3">${caption}</figcaption>
+  </figure>`;
+
+const caseStudy = ({ title, tagline, facts, demo, source, cover, stack, challenges }) => html`
+  <header class="space-y-6">
+    <p class="eyebrow">Case study</p>
+    <h1 class="text-5xl md:text-6xl">${title}</h1>
+    <p class="text-xl text-muted max-w-2xl">${tagline}</p>
+    <dl class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+      ${facts.map(({ label, value }) => html`
+      <div class="card">
+        <dt class="eyebrow mb-2">${label}</dt>
+        <dd>${value}</dd>
+      </div>`)}
+    </dl>
+    <div class="flex flex-wrap gap-3">
+      <a href="${demo}"${external(demo)} class="btn btn-solid">Live Demo</a>
+      <a href="${source}"${external(source)} class="btn btn-ghost"><i class="fab fa-github" aria-hidden="true"></i>Source Code</a>
+    </div>
+  </header>
+  <img src="${cover.src}" alt="${cover.alt}" width="${cover.width}" height="${cover.height}" fetchpriority="high" class="shot" />
+  <section class="panel" aria-labelledby="stack-title">
+    <h2 id="stack-title" class="section-title mb-10">Stack &amp; decisions</h2>
+    <dl class="divide-y divide-line border-t border-line">
+      ${stack.map(({ label, text }) => html`
+      <div class="flex flex-col md:flex-row gap-1 md:gap-6 py-4">
+        <dt class="eyebrow md:w-40 shrink-0 md:pt-1">${label}</dt>
+        <dd class="flex-1">${prose(text)}</dd>
+      </div>`)}
+    </dl>
+  </section>
+  <section class="panel" aria-labelledby="challenges-title">
+    <h2 id="challenges-title" class="section-title mb-10">Challenges</h2>
+    <ol class="space-y-16">
+      ${challenges.map(({ title: name, problem, fix, figure: shot }, i) => html`
+      <li class="space-y-6">
+        <div>
+          <p class="eyebrow mb-2">${String(i + 1).padStart(2, '0')}</p>
+          <h3 class="text-2xl">${name}</h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl">
+          <div>
+            <p class="eyebrow mb-2">Problem</p>
+            <p class="text-muted">${prose(problem)}</p>
+          </div>
+          <div>
+            <p class="eyebrow mb-2">Fix</p>
+            <p>${prose(fix)}</p>
+          </div>
+        </div>
+        ${shot ? figure(shot) : ''}
+      </li>`)}
+    </ol>
+  </section>`;
+
 export const partials = {
   'nav-links': navLinks,
   'social-links': socialLinks,
@@ -84,6 +147,7 @@ export const partials = {
   'earlier-work': earlierWorkRows,
   'experience-cards': experience.map(timelineCard),
   'education-cards': education.map(timelineCard),
+  ...Object.fromEntries(caseStudies.map((study) => [`case-study-${study.slug}`, caseStudy(study)])),
 };
 
 /** Replaces each `<!-- render:name -->` marker with its rendered partial. */

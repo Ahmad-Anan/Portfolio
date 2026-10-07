@@ -2,6 +2,7 @@
 @import "tailwindcss" source(none);
 @source "../index.html";
 @source "../content";
+@source "../projects";
 
 /* ── Precision design tokens ─────────────────────────────────────────── */
 :root {
@@ -229,6 +230,27 @@
 
     .icon-link:hover, .icon-link:focus-visible {
         color: var(--signal);
+    }
+
+    /* Product screenshots: framed like cards, scaled to their column. */
+    .shot {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+    }
+
+    /* Inline code in case-study prose */
+    code {
+        font-family: var(--font-mono);
+        font-size: 0.875em;
+        color: var(--paper);
+        background: var(--ink);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        padding: 0.05em 0.35em;
+        overflow-wrap: anywhere;
     }
 
     /* Form fields: --muted border, since --line (1.2:1) is too faint to mark an input */
