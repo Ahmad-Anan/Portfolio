@@ -59,7 +59,7 @@ contactForm.addEventListener('submit', async (event) => {
     showResult(null);
     const label = submitButton.textContent;
     submitButton.disabled = true;
-    submitButton.textContent = 'Sending…';
+    submitButton.textContent = submitButton.dataset.sending;
 
     try {
         const response = await fetch(contactForm.action, {
