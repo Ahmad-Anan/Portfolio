@@ -9,6 +9,9 @@
     />
     <meta name="theme-color" content="#0E1013" />
     <link rel="canonical" href="https://portfolio-one-navy-65.vercel.app/" />
+    <link rel="alternate" hreflang="en" href="https://portfolio-one-navy-65.vercel.app/" />
+    <link rel="alternate" hreflang="ar" href="https://portfolio-one-navy-65.vercel.app/ar/" />
+    <link rel="alternate" hreflang="x-default" href="https://portfolio-one-navy-65.vercel.app/" />
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta
@@ -84,20 +87,23 @@
     <nav class="sticky top-0 z-50 bg-ink border-b border-line">
       <div class="container mx-auto px-6 h-16 flex justify-between items-center">
         <a href="#home" class="font-display font-bold text-lg tracking-tight">Ahmed Anan</a>
-        <ul class="hidden md:flex gap-8 text-sm">
-          <!-- render:nav-links -->
-        </ul>
-        <button
-          id="menu-toggle"
-          type="button"
-          aria-label="Toggle navigation menu"
-          aria-controls="mobile-menu"
-          aria-expanded="false"
-          class="md:hidden text-paper p-3 -me-3"
-        >
-          <i class="fas fa-bars text-xl" data-menu-icon="open" aria-hidden="true"></i>
-          <i class="fas fa-xmark text-xl hidden" data-menu-icon="close" aria-hidden="true"></i>
-        </button>
+        <div class="flex items-center gap-8">
+          <ul class="hidden md:flex gap-8 text-sm">
+            <!-- render:nav-links -->
+          </ul>
+          <a href="/ar/" lang="ar" hreflang="ar" class="nav-link text-sm py-1">العربية</a>
+          <button
+            id="menu-toggle"
+            type="button"
+            aria-label="Toggle navigation menu"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            class="md:hidden text-paper p-3 -me-3"
+          >
+            <i class="fas fa-bars text-xl" data-menu-icon="open" aria-hidden="true"></i>
+            <i class="fas fa-xmark text-xl hidden" data-menu-icon="close" aria-hidden="true"></i>
+          </button>
+        </div>
       </div>
       <div id="mobile-menu" class="md:hidden">
         <ul class="border-t border-line px-6 py-6 space-y-4 text-center">
