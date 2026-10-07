@@ -17,29 +17,31 @@
     <meta property="og:url" content="https://portfolio-one-navy-65.vercel.app/ar/projects/tawasol/" />
     <meta property="og:title" content="دراسة حالة: تواصل | أحمد ماجد عنان" />
     <meta property="og:description" content="كيف يتعامل تطبيق تواصل اجتماعي ثنائي اللغة بـ Angular 22 مع النصوص المختلطة الاتجاه، وصيغ الجمع في العربية، وحساب تجريبي عام." />
-    <meta property="og:image" content="https://portfolio-one-navy-65.vercel.app/projects/tawasol/feed-en-light.webp" />
+    <meta property="og:image" content="https://portfolio-one-navy-65.vercel.app/og/tawasol.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="دراسة حالة: تواصل" />
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="دراسة حالة: تواصل | أحمد ماجد عنان" />
     <meta name="twitter:description" content="كيف يتعامل تطبيق تواصل اجتماعي ثنائي اللغة بـ Angular 22 مع النصوص المختلطة الاتجاه، وصيغ الجمع في العربية، وحساب تجريبي عام." />
-    <meta name="twitter:image" content="https://portfolio-one-navy-65.vercel.app/projects/tawasol/feed-en-light.webp" />
+    <meta name="twitter:image" content="https://portfolio-one-navy-65.vercel.app/og/tawasol.png" />
     <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>دراسة حالة: تواصل | أحمد ماجد عنان</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+    <!-- Above-the-fold faces on Arabic pages: Arabic headings and body text. The rest load on demand (css/style.css). -->
+    <link rel="preload" href="/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/css/style.css" />
+    <!-- Vercel Web Analytics (enabled in the Vercel dashboard): cookie-free page views. -->
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body class="overflow-x-clip">
+    <a href="#main" class="skip-link">تخطَّ إلى المحتوى</a>
     <nav class="sticky top-0 z-50 bg-ink border-b border-line">
       <div class="container mx-auto px-6 h-16 flex justify-between items-center">
         <a href="/ar/" class="font-display font-bold text-lg tracking-tight">أحمد عنان</a>
@@ -50,7 +52,7 @@
       </div>
     </nav>
 
-    <main class="container mx-auto py-16 px-4 sm:px-6 space-y-10 md:space-y-16">
+    <main id="main" tabindex="-1" class="container mx-auto py-16 px-4 sm:px-6 space-y-10 md:space-y-16">
       <!-- render:case-study-tawasol -->
     </main>
 

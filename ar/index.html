@@ -25,8 +25,11 @@
     />
     <meta
       property="og:image"
-      content="https://portfolio-one-navy-65.vercel.app/photo/1.jpeg"
+      content="https://portfolio-one-navy-65.vercel.app/og/home-ar.png"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="أحمد ماجد عنان، مطوّر واجهات أمامية متخصص في Angular" />
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
@@ -39,27 +42,46 @@
     />
     <meta
       name="twitter:image"
-      content="https://portfolio-one-navy-65.vercel.app/photo/1.jpeg"
+      content="https://portfolio-one-navy-65.vercel.app/og/home-ar.png"
     />
-    <!-- TODO: placeholder favicon (letter "A") — replace favicon.svg / favicon.ico in public/ with the custom icon. -->
     <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>أحمد ماجد عنان | مطوّر واجهات أمامية</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <!-- Precision type, plus IBM Plex Sans Arabic for the Arabic text -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+    <!-- Structured data: who this site is about, for search engines. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ahmed Maged Anan",
+        "alternateName": "أحمد ماجد عنان",
+        "jobTitle": "Frontend Developer",
+        "description": "Frontend developer who builds fast, accessible Angular apps, with Signals, SSR, and full Arabic/English RTL.",
+        "url": "https://portfolio-one-navy-65.vercel.app/",
+        "image": "https://portfolio-one-navy-65.vercel.app/photo/profile-864.webp",
+        "email": "mailto:ahmed.anan.dev@gmail.com",
+        "address": { "@type": "PostalAddress", "addressCountry": "EG" },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Al-Azhar University" },
+          { "@type": "EducationalOrganization", "name": "Route Academy" }
+        ],
+        "knowsAbout": ["Angular", "TypeScript", "JavaScript", "Tailwind CSS", "Accessibility", "Internationalization", "Right-to-left layout"],
+        "knowsLanguage": ["ar", "en"],
+        "sameAs": ["https://www.linkedin.com/in/ahmed-anan-285364273/", "https://github.com/Ahmad-Anan"]
+      }
+    </script>
+    <!-- Above-the-fold faces on Arabic pages: Arabic headings and body text. The rest load on demand (css/style.css). -->
+    <link rel="preload" href="/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/css/style.css" />
+    <!-- Vercel Web Analytics (enabled in the Vercel dashboard): cookie-free page views. -->
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body class="overflow-x-clip">
+    <a href="#main" class="skip-link">تخطَّ إلى المحتوى</a>
     <!-- The Arabic home page: the same layout as /index.html. "render:*" comments are filled from content/ar/data.js. -->
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-ink border-b border-line">
@@ -78,7 +100,8 @@
             aria-expanded="false"
             class="md:hidden text-paper p-3 -me-3"
           >
-            <i class="fas fa-bars text-xl" aria-hidden="true"></i>
+            <i class="fas fa-bars text-xl" data-menu-icon="open" aria-hidden="true"></i>
+            <i class="fas fa-xmark text-xl hidden" data-menu-icon="close" aria-hidden="true"></i>
           </button>
         </div>
       </div>
@@ -90,28 +113,18 @@
     </nav>
 
     <!-- Header -->
-    <header id="home" class="relative flex items-center min-h-screen overflow-hidden border-b border-line">
-      <!-- Hero background: the LCP image, so it loads eagerly at high priority -->
-      <picture>
-        <source srcset="/photo/2.webp" type="image/webp" />
-        <img
-          src="/photo/2.png"
-          alt=""
-          width="1200"
-          height="673"
-          fetchpriority="high"
-          class="absolute inset-0 w-full h-full object-cover grayscale"
-        />
-      </picture>
-      <div class="absolute inset-0 bg-ink/85"></div>
-      <div class="container mx-auto relative px-6 py-24 text-center">
+    <header id="home" class="flex items-center min-h-svh border-b border-line">
+      <div class="container mx-auto px-6 py-24 text-center">
         <h1 class="reveal-load text-5xl md:text-7xl">أحمد ماجد عنان</h1>
-        <p class="font-mono text-sm md:text-base uppercase tracking-[0.2em] text-paper mt-6">مطوّر واجهات أمامية</p>
-        <p class="tag mt-4"><i class="fas fa-location-dot me-1.5" aria-hidden="true"></i>مصر · متاح للعمل عن بُعد</p>
+        <p class="font-mono text-sm md:text-base uppercase tracking-[0.2em] text-paper mt-6">مطوّر واجهات أمامية، متخصص في Angular</p>
         <p class="text-lg md:text-xl text-muted max-w-2xl mx-auto mt-6">
-          أبني تطبيقات ويب سريعة تتمحور حول المستخدم، بأحدث التقنيات.
+          أبني تطبيقات Angular سريعة وسهلة الوصول، باستخدام Signals وSSR ودعم كامل للعربية والإنجليزية من اليمين إلى اليسار.
         </p>
-        <a href="#profile" class="btn btn-solid mt-10">اعرف المزيد</a>
+        <p class="tag mt-6"><i class="fas fa-location-dot me-1.5" aria-hidden="true"></i>مصر · متاح للعمل عن بُعد</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-3 mt-10">
+          <a href="/pdf/CV_Anan-Frontend.pdf" download class="btn btn-solid">تحميل السيرة الذاتية (بالإنجليزية)</a>
+          <a href="#contact" class="btn btn-ghost">تواصل معي</a>
+        </div>
         <div class="flex justify-center gap-3 mt-12">
           <!-- render:social-links -->
         </div>
@@ -119,7 +132,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto py-16 px-4 sm:px-6 space-y-10 md:space-y-16">
+    <main id="main" tabindex="-1" class="container mx-auto py-16 px-4 sm:px-6 space-y-10 md:space-y-16">
       <!-- Profile -->
       <section id="profile" class="panel">
         <div class="mb-12">
@@ -137,16 +150,17 @@
               class="block rounded-md border border-line overflow-hidden cursor-zoom-in transition-colors hover:border-signal"
             >
               <img
-                src="/photo/1.jpeg"
+                src="/photo/profile-448.webp"
+                srcset="/photo/profile-224.webp 224w, /photo/profile-448.webp 448w"
+                sizes="(min-width: 768px) 224px, 160px"
                 alt="أحمد ماجد عنان"
-                width="864"
-                height="1184"
+                width="448"
+                height="614"
                 loading="lazy"
                 decoding="async"
                 class="w-40 h-40 md:w-56 md:h-56 object-cover object-top"
               />
             </button>
-            <span class="tag text-paper whitespace-nowrap">متاح للتوظيف</span>
           </div>
           <div class="flex-1 space-y-6 text-lg leading-relaxed">
             <p>
@@ -180,7 +194,7 @@
         </div>
         <dialog id="photo-dialog" class="lightbox" aria-label="الصورة الشخصية">
           <img
-            src="/photo/1.jpeg"
+            src="/photo/profile-864.webp"
             alt="أحمد ماجد عنان"
             width="864"
             height="1184"
@@ -285,17 +299,30 @@
               <!-- render:social-links -->
             </div>
           </div>
-          <form id="contact-form" action="https://formspree.io/f/mvkgovov" method="POST" class="space-y-4">
-            <label for="name" class="sr-only">اسمك</label>
-            <input type="text" id="name" name="name" placeholder="اسمك" autocomplete="name" required class="field" />
-            <label for="email" class="sr-only">بريدك الإلكتروني</label>
-            <input type="email" id="email" name="email" placeholder="بريدك الإلكتروني" autocomplete="email" required class="field" />
-            <label for="message" class="sr-only">رسالتك</label>
-            <textarea id="message" name="message" placeholder="رسالتك" rows="5" required class="field"></textarea>
+          <form id="contact-form" action="https://formspree.io/f/mvkgovov" method="POST" class="space-y-5">
+            <!-- Formspree: subject line for the email I receive, and a honeypot only bots fill in. -->
+            <input type="hidden" name="_subject" value="New message from the portfolio (Arabic page)" />
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
+            <div>
+              <label for="name" class="eyebrow block mb-2">الاسم</label>
+              <input type="text" id="name" name="name" autocomplete="name" required class="field" />
+            </div>
+            <div>
+              <label for="email" class="eyebrow block mb-2">البريد الإلكتروني</label>
+              <input type="email" id="email" name="email" autocomplete="email" required class="field" />
+            </div>
+            <div>
+              <label for="message" class="eyebrow block mb-2">الرسالة</label>
+              <textarea id="message" name="message" rows="5" required class="field"></textarea>
+            </div>
             <!-- The page's single signal-colored call to action -->
             <button type="submit" id="contact-submit" data-sending="جارٍ الإرسال…" class="btn btn-primary w-full py-4 disabled:opacity-60 disabled:cursor-not-allowed">إرسال الرسالة</button>
-            <p id="form-success" class="font-medium" role="status" hidden>تم إرسال رسالتك بنجاح.</p>
-            <p id="form-error" class="font-medium" role="alert" hidden>
+            <!-- One result shows at a time and receives focus, so screen readers announce it. -->
+            <p data-result="success" tabindex="-1" class="font-medium" hidden>تم إرسال رسالتك. شكرًا لك، سأرد عليك قريبًا.</p>
+            <p data-result="invalid" tabindex="-1" class="font-medium" hidden>
+              لم تُرسَل رسالتك. تأكّد من صحة بريدك الإلكتروني ثم حاول مرة أخرى.
+            </p>
+            <p data-result="error" tabindex="-1" class="font-medium" hidden>
               حدث خطأ ما. حاول مرة أخرى أو راسلني مباشرةً على
               <a href="mailto:ahmed.anan.dev@gmail.com" class="text-link">ahmed.anan.dev@gmail.com</a>.
             </p>
