@@ -392,3 +392,26 @@
         }
     }
 }
+
+/* ── Skip link: hidden until focused, then the first thing on screen ─── */
+.skip-link {
+    position: absolute;
+    inset-inline-start: 1rem;
+    top: 0.75rem;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+    transform: none;
+}
+
+/* The skip link focuses <main>; it doesn't need a ring of its own. */
+main:focus {
+    outline: none;
+}
