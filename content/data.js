@@ -49,6 +49,7 @@ export const projects = [
     title: 'Tawasol — Social Media Platform',
     description: 'Built a LinkedIn-style social platform end-to-end in Angular 22 (Zoneless, Signals, SSR) — authentication, a filterable infinite-scroll feed, profiles, threaded comments with likes and replies, bookmarks, and live notification badges backed by real REST APIs. Unified design-token color system audited for WCAG AA contrast in both themes.',
     tags: ['Angular 22', 'TypeScript', 'Angular Material', 'Tailwind CSS v4', 'SSR', 'REST APIs'],
+    caseStudy: '/projects/tawasol/',
     demo: 'https://tawasol-two.vercel.app',
     source: 'https://github.com/Ahmad-Anan/tawasol',
   },

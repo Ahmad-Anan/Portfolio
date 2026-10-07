@@ -42,7 +42,7 @@ const skillCards = skills.map(({ icon, name, note }) => html`
     </div>
   </li>`);
 
-const projectCards = projects.map(({ icon, title, description, tags, demo, source }) => html`
+const projectCards = projects.map(({ icon, title, description, tags, caseStudy: study, demo, source }) => html`
   <article class="card flex flex-col">
     <div class="flex items-center gap-3 mb-4">
       <i class="${icon} leading-icon" aria-hidden="true"></i>
@@ -53,7 +53,8 @@ const projectCards = projects.map(({ icon, title, description, tags, demo, sourc
       ${tags.map((tag) => html`<li class="tag">${tag}</li>`)}
     </ul>
     <div class="flex flex-wrap gap-3 mt-auto">
-      <a href="${demo}"${external(demo)} class="btn btn-sm btn-solid">Live Demo</a>
+      ${study ? html`<a href="${study}" class="btn btn-sm btn-solid">Read the case study</a>` : ''}
+      <a href="${demo}"${external(demo)} class="btn btn-sm ${study ? 'btn-ghost' : 'btn-solid'}">Live Demo</a>
       <a href="${source}"${external(source)} class="btn btn-sm btn-ghost"><i class="fab fa-github" aria-hidden="true"></i>Source Code</a>
     </div>
   </article>`);
