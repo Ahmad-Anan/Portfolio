@@ -74,4 +74,48 @@ export const tawasol = {
   ],
 };
 
-export const caseStudies = [tawasol];
+// Screenshots are added once KingMart's image fix is deployed (cover and figures are optional).
+export const kingmart = {
+  slug: 'kingmart',
+  title: 'KingMart',
+  tagline: 'A luxury e-commerce store with a “quiet luxury” design system, in English and Arabic.',
+  facts: [
+    { label: 'Role', value: 'Solo: design, front end, deployment' },
+    { label: 'Timeline', value: 'About 6–7 weeks' },
+    { label: 'Backend', value: 'Route Academy’s public e-commerce API, not mine. Everything here is the Angular front end.' },
+  ],
+  demo: 'https://kingmart.vercel.app',
+  source: 'https://github.com/Ahmad-Anan/kingmart',
+  stack: [
+    { label: 'Angular 22', text: 'Signals, zoneless change detection, and OnPush on every component.' },
+    { label: 'Rendering', text: 'Prerendered pages plus client-rendered dynamic routes, served as static files on Vercel.' },
+    { label: 'Styling', text: 'Tailwind CSS v4 and PrimeNG 22, themed to one “quiet luxury” design system in light and dark mode.' },
+    { label: 'State', text: 'Signal-based cart and wishlist services.' },
+    { label: 'Checkout', text: 'Stripe checkout, behind SSR-safe auth guards with return-URL redirects.' },
+    { label: 'i18n', text: 'Full English and Arabic, with RTL layout.' },
+  ],
+  challenges: [
+    {
+      title: 'A runaway quantity input',
+      problem: 'PrimeNG’s InputNumber had a runaway-value bug in the cart.',
+      fix: 'I replaced it with a custom quantity stepper: two buttons around the count, disabled while that item is updating and at a quantity of one.',
+    },
+    {
+      title: 'Unreadable text in dark mode',
+      problem: 'Some text in dark mode was unreadable, because it used Tailwind color tokens that didn’t exist.',
+      fix: 'Dark mode now has one source of truth, the `my-app-dark` class. PrimeNG’s `darkModeSelector`, Tailwind’s `@custom-variant dark`, and the theme service all key off that one class.',
+    },
+    {
+      title: '404s on hard reload',
+      problem: 'On Vercel, reloading a product, brand, or category page returned a 404. Those routes have parameters, so they can’t be prerendered.',
+      fix: 'Those routes render on the client (`RenderMode.Client`), and a Vercel rewrite falls back to the client-side app shell for any path without a prerendered page.',
+    },
+    {
+      title: 'Sideways scrolling in Arabic',
+      problem: 'In Arabic, the page scrolled sideways on small phones because of a decorative element.',
+      fix: 'The overflow is clipped on the section that holds it, so the decoration stays but can’t widen the page.',
+    },
+  ],
+};
+
+export const caseStudies = [tawasol, kingmart];
