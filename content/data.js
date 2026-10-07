@@ -40,7 +40,7 @@ export const projects = [
     icon: 'fas fa-crown',
     title: 'KingMart — Luxury E-Commerce Platform',
     description: 'Architected a full-featured e-commerce platform in Angular 22 (Signals, Zoneless change detection, OnPush by default), built around a custom "quiet luxury" design system with a bespoke dark mode and full Arabic/English RTL support. Implemented Signal-based Cart and Wishlist services with SSR-safe auth guards, a Stripe-integrated checkout flow, and a custom quantity stepper.',
-    tags: ['Angular 22', 'TypeScript', 'Tailwind CSS v4', 'PrimeNG 22', 'Stripe', 'SSR'],
+    tags: ['Angular 22', 'TypeScript', 'Tailwind CSS v4', 'PrimeNG 22', 'Stripe', 'Prerendering'],
     demo: 'https://kingmart.vercel.app',
     source: 'https://github.com/Ahmad-Anan/kingmart',
   },
