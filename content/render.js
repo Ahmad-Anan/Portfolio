@@ -105,7 +105,7 @@ const caseStudy = ({ title, tagline, facts, demo, source, cover, stack, challeng
       <a href="${source}"${external(source)} class="btn btn-ghost"><i class="fab fa-github" aria-hidden="true"></i>Source Code</a>
     </div>
   </header>
-  <img src="${cover.src}" alt="${cover.alt}" width="${cover.width}" height="${cover.height}" fetchpriority="high" class="shot" />
+  ${cover ? html`<img src="${cover.src}" alt="${cover.alt}" width="${cover.width}" height="${cover.height}" fetchpriority="high" class="shot" />` : ''}
   <section class="panel" aria-labelledby="stack-title">
     <h2 id="stack-title" class="section-title mb-10">Stack &amp; decisions</h2>
     <dl class="divide-y divide-line border-t border-line">
