@@ -138,6 +138,14 @@
         transition: border-color var(--speed);
     }
 
+    /* Inline SVG icons (content/icons.js): sized and colored like text, as the icon font was. */
+    .icon {
+        display: inline-block;
+        height: 1em;
+        overflow: visible;
+        vertical-align: -0.125em;
+    }
+
     /* The icon that leads a card or list row: one size and color everywhere. */
     .leading-icon {
         flex-shrink: 0;

@@ -3,13 +3,14 @@
 // Mobile menu
 const menuToggle = document.getElementById('menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = menuToggle.querySelector('i');
+const openIcon = menuToggle.querySelector('[data-menu-icon="open"]');
+const closeIcon = menuToggle.querySelector('[data-menu-icon="close"]');
 
 const setMenuOpen = (open) => {
     mobileMenu.classList.toggle('open', open);
     menuToggle.setAttribute('aria-expanded', String(open));
-    menuIcon.classList.toggle('fa-bars', !open);
-    menuIcon.classList.toggle('fa-xmark', open);
+    openIcon.classList.toggle('hidden', open);
+    closeIcon.classList.toggle('hidden', !open);
 };
 
 menuToggle.addEventListener('click', () => {

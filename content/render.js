@@ -3,6 +3,7 @@
 // so content from data.js can never inject markup.
 import { nav, social, skills, projects, earlierWork, experience, education } from './data.js';
 import { caseStudies } from './case-studies.js';
+import { icons } from './icons.js';
 
 class Markup {
   constructor(value) { this.value = value; }
@@ -151,9 +152,23 @@ export const partials = {
   ...Object.fromEntries(caseStudies.map((study) => [`case-study-${study.slug}`, caseStudy(study)])),
 };
 
-/** Replaces each `<!-- render:name -->` marker with its rendered partial. */
-export const renderPartials = (source) =>
-  source.replace(/<!--\s*render:([\w-]+)\s*-->/g, (marker, name) => {
-    if (!(name in partials)) throw new Error(`Unknown partial in index.html: ${marker}`);
-    return toHtml(partials[name]);
+/** Turns each Font Awesome-style `<i class="fas fa-NAME …"></i>` into an inline SVG from icons.js. */
+const inlineIcons = (source) =>
+  source.replace(/<i\s([^>]*?)><\/i>/g, (tag, attrs) => {
+    const classes = attrs.match(/class="([^"]*)"/)?.[1].split(/\s+/) ?? [];
+    const name = classes.find((c) => c.startsWith('fa-'))?.slice(3);
+    if (!(name in icons)) throw new Error(`Unknown icon: ${tag}`);
+    const [viewBox, path] = icons[name];
+    const kept = classes.filter((c) => !/^(fa-.*|fas|fab)$/.test(c));
+    const extra = attrs.replace(/\s*(class|aria-hidden)="[^"]*"/g, '').trim();
+    return `<svg class="${['icon', ...kept].join(' ')}" viewBox="${viewBox}"${extra ? ` ${extra}` : ''} aria-hidden="true" focusable="false"><path fill="currentColor" d="${path}"/></svg>`;
   });
+
+/** Replaces each `<!-- render:name -->` marker with its rendered partial, then inlines every icon. */
+export const renderPartials = (source) =>
+  inlineIcons(
+    source.replace(/<!--\s*render:([\w-]+)\s*-->/g, (marker, name) => {
+      if (!(name in partials)) throw new Error(`Unknown partial in index.html: ${marker}`);
+      return toHtml(partials[name]);
+    }),
+  );

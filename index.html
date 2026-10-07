@@ -44,15 +44,10 @@
     <title>Ahmed Maged Anan | Frontend Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <!-- Precision type: Space Grotesk (headings), IBM Plex Sans (body), IBM Plex Mono (labels) -->
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
@@ -74,7 +69,8 @@
           aria-expanded="false"
           class="md:hidden text-paper p-3 -me-3"
         >
-          <i class="fas fa-bars text-xl" aria-hidden="true"></i>
+          <i class="fas fa-bars text-xl" data-menu-icon="open" aria-hidden="true"></i>
+          <i class="fas fa-xmark text-xl hidden" data-menu-icon="close" aria-hidden="true"></i>
         </button>
       </div>
       <div id="mobile-menu" class="md:hidden">
