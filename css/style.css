@@ -3,6 +3,7 @@
 @source "../index.html";
 @source "../content";
 @source "../projects";
+@source "../404.html";
 
 /* ── Fonts: self-hosted Latin subsets (public/fonts, SIL OFL 1.1) ──────── */
 @font-face {

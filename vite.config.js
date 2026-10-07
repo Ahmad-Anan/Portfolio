@@ -11,7 +11,7 @@ const caseStudyPages = Object.fromEntries(
 export default defineConfig({
   build: {
     rollupOptions: {
-      input: { main: resolve('index.html'), ...caseStudyPages },
+      input: { main: resolve('index.html'), notFound: resolve('404.html'), ...caseStudyPages },
     },
   },
   plugins: [
