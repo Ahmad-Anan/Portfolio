@@ -77,21 +77,8 @@
     </nav>
 
     <!-- Header -->
-    <header id="home" class="relative flex items-center min-h-screen overflow-hidden border-b border-line">
-      <!-- Hero background: the LCP image, so it loads eagerly at high priority -->
-      <picture>
-        <source srcset="/photo/2.webp" type="image/webp" />
-        <img
-          src="/photo/2.png"
-          alt=""
-          width="1200"
-          height="673"
-          fetchpriority="high"
-          class="absolute inset-0 w-full h-full object-cover grayscale"
-        />
-      </picture>
-      <div class="absolute inset-0 bg-ink/85"></div>
-      <div class="container mx-auto relative px-6 py-24 text-center">
+    <header id="home" class="flex items-center min-h-svh border-b border-line">
+      <div class="container mx-auto px-6 py-24 text-center">
         <h1 class="reveal-load text-5xl md:text-7xl">Ahmed Maged Anan</h1>
         <p class="font-mono text-sm md:text-base uppercase tracking-[0.2em] text-paper mt-6">Frontend Developer, Angular</p>
         <p class="text-lg md:text-xl text-muted max-w-2xl mx-auto mt-6">
