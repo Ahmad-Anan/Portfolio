@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Every public page. Arabic pages join with hreflang alternates when /ar/ ships;
+     the KingMart case study joins once it is linked from the home page. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://portfolio-one-navy-65.vercel.app/</loc>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+  <url>
+    <loc>https://portfolio-one-navy-65.vercel.app/projects/tawasol/</loc>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+</urlset>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio-one-navy-65.vercel.app/sitemap.xml
