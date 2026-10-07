@@ -1,8 +1,12 @@
-// Build-time templates for the repeated blocks in index.html.
+// Build-time templates for the repeated blocks in each page.
 // `html` escapes every interpolated value unless it is itself `html` output,
-// so content from data.js can never inject markup.
-import { nav, social, skills, projects, earlierWork, experience, education } from './data.js';
-import { caseStudies } from './case-studies.js';
+// so content from the data files can never inject markup.
+// Pages under /ar/ render from the Arabic content; every other page from the English.
+import * as en from './data.js';
+import * as ar from './ar/data.js';
+import { caseStudies as enStudies } from './case-studies.js';
+import { caseStudies as arStudies } from './ar/case-studies.js';
+import { ui } from './ui.js';
 import { icons } from './icons.js';
 
 class Markup {
@@ -25,16 +29,18 @@ const prose = (text) =>
 // External links open in a new tab; mailto:/tel: and in-page links don't.
 const external = (href) => (/^https?:/.test(href) ? html` target="_blank" rel="noopener noreferrer"` : '');
 
-const navLinks = nav.map(({ href, label }) => html`
+/** All partials for one language: its content, its case studies, and its UI labels (`t`). */
+const build = ({ nav, social, skills, projects, earlierWork, experience, education }, caseStudies, t) => {
+  const navLinks = nav.map(({ href, label }) => html`
   <li><a href="${href}" class="nav-link">${label}</a></li>`);
 
-const socialLinks = social.map(({ icon, label, tooltip, href }) => html`
+  const socialLinks = social.map(({ icon, label, tooltip, href }) => html`
   <a href="${href}"${external(href)} aria-label="${label}" class="icon-link">
     <i class="${icon}" aria-hidden="true"></i>
     <span class="tooltip">${tooltip}</span>
   </a>`);
 
-const skillCards = skills.map(({ icon, name, note }) => html`
+  const skillCards = skills.map(({ icon, name, note }) => html`
   <li class="card flex items-start gap-4">
     <i class="${icon} leading-icon mt-0.5" aria-hidden="true"></i>
     <div>
@@ -43,34 +49,34 @@ const skillCards = skills.map(({ icon, name, note }) => html`
     </div>
   </li>`);
 
-const projectCards = projects.map(({ icon, title, description, tags, caseStudy: study, demo, source }) => html`
+  const projectCards = projects.map(({ icon, title, description, tags, caseStudy: study, demo, source }) => html`
   <article class="card flex flex-col">
     <div class="flex items-center gap-3 mb-4">
       <i class="${icon} leading-icon" aria-hidden="true"></i>
       <h3 class="text-xl">${title}</h3>
     </div>
     <p class="text-muted mb-4">${description}</p>
-    <ul class="flex flex-wrap gap-2 mb-6" aria-label="Technologies">
+    <ul class="flex flex-wrap gap-2 mb-6" aria-label="${t.technologies}">
       ${tags.map((tag) => html`<li class="tag">${tag}</li>`)}
     </ul>
     <div class="flex flex-wrap gap-3 mt-auto">
-      ${study ? html`<a href="${study}" class="btn btn-sm btn-solid">Read the case study</a>` : ''}
-      <a href="${demo}"${external(demo)} class="btn btn-sm ${study ? 'btn-ghost' : 'btn-solid'}">Live Demo</a>
-      <a href="${source}"${external(source)} class="btn btn-sm btn-ghost"><i class="fab fa-github" aria-hidden="true"></i>Source Code</a>
+      ${study ? html`<a href="${study}" class="btn btn-sm btn-solid">${t.readCaseStudy}</a>` : ''}
+      <a href="${demo}"${external(demo)} class="btn btn-sm ${study ? 'btn-ghost' : 'btn-solid'}">${t.liveDemo}</a>
+      <a href="${source}"${external(source)} class="btn btn-sm btn-ghost"><i class="fab fa-github" aria-hidden="true"></i>${t.sourceCode}</a>
     </div>
   </article>`);
 
-const earlierWorkRows = earlierWork.map(({ title, summary, demo, source }) => html`
+  const earlierWorkRows = earlierWork.map(({ title, summary, demo, source }) => html`
   <li class="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-6 py-4">
     <h4 class="font-medium md:w-40 shrink-0">${title}</h4>
     <p class="text-muted flex-1">${summary}</p>
     <p class="flex gap-4 text-sm shrink-0">
-      <a href="${demo}"${external(demo)} class="text-link">Live Demo</a>
+      <a href="${demo}"${external(demo)} class="text-link">${t.liveDemo}</a>
       <a href="${source}"${external(source)} class="text-link">GitHub</a>
     </p>
   </li>`);
 
-const timelineCard = ({ icon, title, place, period, description }) => html`
+  const timelineCard = ({ icon, title, place, period, description }) => html`
   <li class="card flex flex-col sm:flex-row items-start gap-4">
     <i class="${icon} leading-icon mt-1" aria-hidden="true"></i>
     <div class="flex-1">
@@ -83,15 +89,15 @@ const timelineCard = ({ icon, title, place, period, description }) => html`
     </div>
   </li>`;
 
-const figure = ({ src, width, height, alt, caption, narrow }) => html`
+  const figure = ({ src, width, height, alt, caption, narrow }) => html`
   <figure class="${narrow ? 'max-w-xs' : ''}">
     <img src="${src}" alt="${alt}" width="${width}" height="${height}" loading="lazy" decoding="async" class="shot" />
     <figcaption class="text-sm text-muted mt-3">${caption}</figcaption>
   </figure>`;
 
-const caseStudy = ({ title, tagline, facts, demo, source, cover, stack, challenges }) => html`
+  const caseStudy = ({ title, tagline, facts, demo, source, cover, stack, challenges }) => html`
   <header class="space-y-6">
-    <p class="eyebrow">Case study</p>
+    <p class="eyebrow">${t.caseStudy}</p>
     <h1 class="text-5xl md:text-6xl">${title}</h1>
     <p class="text-xl text-muted max-w-2xl">${tagline}</p>
     <dl class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
@@ -102,13 +108,13 @@ const caseStudy = ({ title, tagline, facts, demo, source, cover, stack, challeng
       </div>`)}
     </dl>
     <div class="flex flex-wrap gap-3">
-      <a href="${demo}"${external(demo)} class="btn btn-solid">Live Demo</a>
-      <a href="${source}"${external(source)} class="btn btn-ghost"><i class="fab fa-github" aria-hidden="true"></i>Source Code</a>
+      <a href="${demo}"${external(demo)} class="btn btn-solid">${t.liveDemo}</a>
+      <a href="${source}"${external(source)} class="btn btn-ghost"><i class="fab fa-github" aria-hidden="true"></i>${t.sourceCode}</a>
     </div>
   </header>
   ${cover ? html`<img src="${cover.src}" alt="${cover.alt}" width="${cover.width}" height="${cover.height}" fetchpriority="high" class="shot" />` : ''}
   <section class="panel" aria-labelledby="stack-title">
-    <h2 id="stack-title" class="section-title mb-10">Stack &amp; decisions</h2>
+    <h2 id="stack-title" class="section-title mb-10">${t.stack}</h2>
     <dl class="divide-y divide-line border-t border-line">
       ${stack.map(({ label, text }) => html`
       <div class="flex flex-col md:flex-row gap-1 md:gap-6 py-4">
@@ -118,7 +124,7 @@ const caseStudy = ({ title, tagline, facts, demo, source, cover, stack, challeng
     </dl>
   </section>
   <section class="panel" aria-labelledby="challenges-title">
-    <h2 id="challenges-title" class="section-title mb-10">Challenges</h2>
+    <h2 id="challenges-title" class="section-title mb-10">${t.challenges}</h2>
     <ol class="space-y-16">
       ${challenges.map(({ title: name, problem, fix, figure: shot }, i) => html`
       <li class="space-y-6">
@@ -128,11 +134,11 @@ const caseStudy = ({ title, tagline, facts, demo, source, cover, stack, challeng
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl">
           <div>
-            <p class="eyebrow mb-2">Problem</p>
+            <p class="eyebrow mb-2">${t.problem}</p>
             <p class="text-muted">${prose(problem)}</p>
           </div>
           <div>
-            <p class="eyebrow mb-2">Fix</p>
+            <p class="eyebrow mb-2">${t.fix}</p>
             <p>${prose(fix)}</p>
           </div>
         </div>
@@ -141,15 +147,21 @@ const caseStudy = ({ title, tagline, facts, demo, source, cover, stack, challeng
     </ol>
   </section>`;
 
+  return {
+    'nav-links': navLinks,
+    'social-links': socialLinks,
+    'skill-cards': skillCards,
+    'project-cards': projectCards,
+    'earlier-work': earlierWorkRows,
+    'experience-cards': experience.map(timelineCard),
+    'education-cards': education.map(timelineCard),
+    ...Object.fromEntries(caseStudies.map((study) => [`case-study-${study.slug}`, caseStudy(study)])),
+  };
+};
+
 export const partials = {
-  'nav-links': navLinks,
-  'social-links': socialLinks,
-  'skill-cards': skillCards,
-  'project-cards': projectCards,
-  'earlier-work': earlierWorkRows,
-  'experience-cards': experience.map(timelineCard),
-  'education-cards': education.map(timelineCard),
-  ...Object.fromEntries(caseStudies.map((study) => [`case-study-${study.slug}`, caseStudy(study)])),
+  en: build(en, enStudies, ui.en),
+  ar: build(ar, arStudies, ui.ar),
 };
 
 /** Turns each Font Awesome-style `<i class="fas fa-NAME …"></i>` into an inline SVG from icons.js. */
@@ -164,11 +176,13 @@ const inlineIcons = (source) =>
     return `<svg class="${['icon', ...kept].join(' ')}" viewBox="${viewBox}"${extra ? ` ${extra}` : ''} aria-hidden="true" focusable="false"><path fill="currentColor" d="${path}"/></svg>`;
   });
 
-/** Replaces each `<!-- render:name -->` marker with its rendered partial, then inlines every icon. */
-export const renderPartials = (source) =>
-  inlineIcons(
+/** Replaces each `<!-- render:name -->` marker with its rendered partial in the page's language, then inlines every icon. */
+export const renderPartials = (source, { path }) => {
+  const locale = path.startsWith('/ar/') ? 'ar' : 'en';
+  return inlineIcons(
     source.replace(/<!--\s*render:([\w-]+)\s*-->/g, (marker, name) => {
-      if (!(name in partials)) throw new Error(`Unknown partial in index.html: ${marker}`);
-      return toHtml(partials[name]);
+      if (!(name in partials[locale])) throw new Error(`Unknown partial in ${path}: ${marker}`);
+      return toHtml(partials[locale][name]);
     }),
   );
+};
