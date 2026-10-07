@@ -6,7 +6,7 @@ export const nav = [
   { href: '#profile', label: 'Profile' },
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
-  { href: '#education', label: 'Edu & Lang' },
+  { href: '#experience', label: 'Experience' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -70,26 +70,44 @@ export const earlierWork = [
   },
 ];
 
+// Newest first; the same timeline as the CV (cv/cv.html).
+export const experience = [
+  {
+    icon: 'fas fa-briefcase',
+    title: 'Front-end Web Developer',
+    place: 'Freelance team',
+    period: 'Apr 2025 – Present',
+    description: 'Building responsive Angular and Tailwind CSS interfaces, integrating REST APIs, and designing reusable components with a small team of freelancers.',
+  },
+  {
+    icon: 'fas fa-laptop-code',
+    title: 'Front-End Internship',
+    place: 'Web Master',
+    period: 'Feb 2025 – Apr 2025',
+    description: 'Built real-world projects in HTML, CSS, and JavaScript with a focus on responsive design, under guided mentorship.',
+  },
+  {
+    icon: 'fas fa-object-group',
+    title: 'Front-End Internship',
+    place: 'Code Alpha',
+    period: 'Nov 2024 – Jan 2025',
+    description: 'Built responsive, user-friendly web interfaces with HTML, CSS, and JavaScript.',
+  },
+];
+
 export const education = [
   {
     icon: 'fas fa-code',
-    title: 'Diploma in Frontend Development',
-    school: 'Route Academy',
+    title: 'Front-End Development (Angular track)',
+    place: 'Route Academy',
     period: 'Jun 2024 – Feb 2025',
     description: 'Built Angular applications with TypeScript, JavaScript, and Tailwind CSS through project-based coursework.',
   },
   {
-    icon: 'fas fa-object-group',
-    title: 'Frontend Development Training',
-    school: 'Code Alpha',
-    period: 'Jan 2025 – Mar 2025',
-    description: 'Focused on HTML5, CSS3, and modern JavaScript (ES6+), building responsive web interfaces.',
-  },
-  {
     icon: 'fas fa-graduation-cap',
     title: "Bachelor's in Business Administration",
-    school: 'Al-Azhar University',
-    period: '2019 – 2023',
+    place: 'Al-Azhar University',
+    period: 'Sep 2019 – May 2023',
     description: 'Gained skills in strategic management, problem-solving, and data analysis.',
   },
 ];

@@ -1,7 +1,7 @@
 // Build-time templates for the repeated blocks in index.html.
 // `html` escapes every interpolated value unless it is itself `html` output,
 // so content from data.js can never inject markup.
-import { nav, social, skills, projects, earlierWork, education } from './data.js';
+import { nav, social, skills, projects, earlierWork, experience, education } from './data.js';
 
 class Markup {
   constructor(value) { this.value = value; }
@@ -63,18 +63,18 @@ const earlierWorkRows = earlierWork.map(({ title, summary, demo, source }) => ht
     </p>
   </li>`);
 
-const educationCards =education.map(({ icon, title, school, period, description }) => html`
+const timelineCard = ({ icon, title, place, period, description }) => html`
   <li class="card flex flex-col sm:flex-row items-start gap-4">
     <i class="${icon} leading-icon mt-1" aria-hidden="true"></i>
     <div class="flex-1">
       <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
-        <h3 class="text-xl">${title}</h3>
+        <h4 class="font-display font-bold text-xl leading-tight tracking-[-0.02em]">${title}</h4>
         <span class="eyebrow whitespace-nowrap">${period}</span>
       </div>
-      <p class="mt-1">${school}</p>
+      <p class="mt-1">${place}</p>
       <p class="text-muted mt-3">${description}</p>
     </div>
-  </li>`);
+  </li>`;
 
 export const partials = {
   'nav-links': navLinks,
@@ -82,7 +82,8 @@ export const partials = {
   'skill-cards': skillCards,
   'project-cards': projectCards,
   'earlier-work': earlierWorkRows,
-  'education-cards': educationCards,
+  'experience-cards': experience.map(timelineCard),
+  'education-cards': education.map(timelineCard),
 };
 
 /** Replaces each `<!-- render:name -->` marker with its rendered partial. */
