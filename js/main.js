@@ -44,14 +44,17 @@ photoDialog.addEventListener('click', () => photoDialog.close());
 document.getElementById('current-year').textContent = new Date().getFullYear();
 
 // Contact form: post to Formspree without leaving the page.
+// The result messages live in the markup (data-result), so each language page carries its own.
 const contactForm = document.getElementById('contact-form');
 const submitButton = document.getElementById('contact-submit');
-const successMessage = document.getElementById('form-success');
-const errorMessage = document.getElementById('form-error');
+const results = contactForm.querySelectorAll('[data-result]');
 
+/** Shows one result message (or none) and moves focus to it, so it is announced. */
 const showResult = (result) => {
-    successMessage.hidden = result !== 'success';
-    errorMessage.hidden = result !== 'error';
+    results.forEach((message) => {
+        message.hidden = message.dataset.result !== result;
+        if (!message.hidden) message.focus();
+    });
 };
 
 contactForm.addEventListener('submit', async (event) => {
@@ -61,19 +64,21 @@ contactForm.addEventListener('submit', async (event) => {
     submitButton.disabled = true;
     submitButton.textContent = submitButton.dataset.sending;
 
+    let result = 'error';
     try {
         const response = await fetch(contactForm.action, {
             method: 'POST',
             body: new FormData(contactForm),
             headers: { Accept: 'application/json' },
         });
-        if (!response.ok) throw new Error(`Formspree responded ${response.status}`);
-        contactForm.reset();
-        showResult('success');
+        // 422: Formspree rejected a field (in practice, the email address); anything else non-OK is on Formspree's side.
+        result = response.ok ? 'success' : response.status === 422 ? 'invalid' : 'error';
+        if (response.ok) contactForm.reset();
     } catch {
-        showResult('error');
+        // Network failure: keep 'error'.
     } finally {
         submitButton.disabled = false;
         submitButton.textContent = label;
+        showResult(result);
     }
 });
