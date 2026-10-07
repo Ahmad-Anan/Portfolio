@@ -510,7 +510,9 @@ main:focus {
     line-height: 1.4;
 }
 
-/* Monospace spaces are too wide between Arabic words, so labels use the sans face in Arabic. */
-:lang(ar) :is(.eyebrow, .tag, .font-mono) {
+/* Monospace spaces are too wide between Arabic words, so labels use the sans face in Arabic,
+   and Latin words inside them (Angular, CSS) keep their own case. */
+:lang(ar) :is(.eyebrow, .tag, .font-mono, .uppercase) {
     font-family: var(--font-sans);
+    text-transform: none;
 }
