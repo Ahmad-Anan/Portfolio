@@ -14,7 +14,7 @@ export const social = [
   { icon: 'fab fa-linkedin', label: 'Ahmed Anan on LinkedIn', tooltip: 'Anan-LinkedIn', href: 'https://www.linkedin.com/in/ahmed-anan-285364273/' },
   { icon: 'fab fa-github', label: 'Ahmed Anan on GitHub', tooltip: 'Anan-GitHub', href: 'https://github.com/Ahmad-Anan' },
   { icon: 'fas fa-envelope', label: 'Email Ahmed Anan', tooltip: 'Anan-Email', href: 'mailto:ahmed.anan.dev@gmail.com' },
-  { icon: 'fab fa-whatsapp', label: 'Message Ahmed Anan on WhatsApp', tooltip: 'Anan-WhatsApp', href: 'https://wa.me/+201002416804' },
+  { icon: 'fab fa-whatsapp', label: 'Message Ahmed Anan on WhatsApp', tooltip: 'Anan-WhatsApp', href: 'https://wa.me/201002416804' },
 ];
 
 export const skills = [
