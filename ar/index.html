@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="البورتفوليو الخاص بأحمد ماجد عنان، مطوّر واجهات أمامية متخصص في Angular وJavaScript وTailwind CSS."
+    />
+    <meta name="theme-color" content="#0E1013" />
+    <link rel="canonical" href="https://portfolio-one-navy-65.vercel.app/ar/" />
+    <link rel="alternate" hreflang="en" href="https://portfolio-one-navy-65.vercel.app/" />
+    <link rel="alternate" hreflang="ar" href="https://portfolio-one-navy-65.vercel.app/ar/" />
+    <link rel="alternate" hreflang="x-default" href="https://portfolio-one-navy-65.vercel.app/" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://portfolio-one-navy-65.vercel.app/ar/"
+    />
+    <meta property="og:title" content="أحمد ماجد عنان | مطوّر واجهات أمامية" />
+    <meta
+      property="og:description"
+      content="تعرّف على أعمالي كمطوّر واجهات أمامية يعمل بأحدث تقنيات الويب."
+    />
+    <meta
+      property="og:image"
+      content="https://portfolio-one-navy-65.vercel.app/photo/1.jpeg"
+    />
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="أحمد ماجد عنان | مطوّر واجهات أمامية"
+    />
+    <meta
+      name="twitter:description"
+      content="تعرّف على أعمالي كمطوّر واجهات أمامية يعمل بأحدث تقنيات الويب."
+    />
+    <meta
+      name="twitter:image"
+      content="https://portfolio-one-navy-65.vercel.app/photo/1.jpeg"
+    />
+    <!-- TODO: placeholder favicon (letter "A") — replace favicon.svg / favicon.ico in public/ with the custom icon. -->
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>أحمد ماجد عنان | مطوّر واجهات أمامية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <!-- Precision type, plus IBM Plex Sans Arabic for the Arabic text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="overflow-x-clip">
+    <!-- The Arabic home page: the same layout as /index.html. "render:*" comments are filled from content/ar/data.js. -->
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-ink border-b border-line">
+      <div class="container mx-auto px-6 h-16 flex justify-between items-center">
+        <a href="#home" class="font-display font-bold text-lg tracking-tight">أحمد عنان</a>
+        <div class="flex items-center gap-8">
+          <ul class="hidden md:flex gap-8 text-sm">
+            <!-- render:nav-links -->
+          </ul>
+          <a href="/" lang="en" hreflang="en" class="nav-link text-sm py-1">English</a>
+          <button
+            id="menu-toggle"
+            type="button"
+            aria-label="فتح قائمة التنقل وإغلاقها"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            class="md:hidden text-paper p-3 -me-3"
+          >
+            <i class="fas fa-bars text-xl" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="md:hidden">
+        <ul class="border-t border-line px-6 py-6 space-y-4 text-center">
+          <!-- render:nav-links -->
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header id="home" class="relative flex items-center min-h-screen overflow-hidden border-b border-line">
+      <!-- Hero background: the LCP image, so it loads eagerly at high priority -->
+      <picture>
+        <source srcset="/photo/2.webp" type="image/webp" />
+        <img
+          src="/photo/2.png"
+          alt=""
+          width="1200"
+          height="673"
+          fetchpriority="high"
+          class="absolute inset-0 w-full h-full object-cover grayscale"
+        />
+      </picture>
+      <div class="absolute inset-0 bg-ink/85"></div>
+      <div class="container mx-auto relative px-6 py-24 text-center">
+        <h1 class="reveal-load text-5xl md:text-7xl">أحمد ماجد عنان</h1>
+        <p class="font-mono text-sm md:text-base uppercase tracking-[0.2em] text-paper mt-6">مطوّر واجهات أمامية</p>
+        <p class="tag mt-4"><i class="fas fa-location-dot me-1.5" aria-hidden="true"></i>مصر · متاح للعمل عن بُعد</p>
+        <p class="text-lg md:text-xl text-muted max-w-2xl mx-auto mt-6">
+          أبني تطبيقات ويب سريعة تتمحور حول المستخدم، بأحدث التقنيات.
+        </p>
+        <a href="#profile" class="btn btn-solid mt-10">اعرف المزيد</a>
+        <div class="flex justify-center gap-3 mt-12">
+          <!-- render:social-links -->
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-16 px-4 sm:px-6 space-y-10 md:space-y-16">
+      <!-- Profile -->
+      <section id="profile" class="panel">
+        <div class="mb-12">
+          <p class="eyebrow mb-3">01</p>
+          <h2 class="section-title reveal-scroll">نبذة عني</h2>
+        </div>
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-12">
+          <div class="shrink-0 flex flex-col items-center md:items-start gap-3">
+            <button
+              id="photo-trigger"
+              type="button"
+              aria-haspopup="dialog"
+              aria-controls="photo-dialog"
+              aria-label="تكبير الصورة الشخصية"
+              class="block rounded-md border border-line overflow-hidden cursor-zoom-in transition-colors hover:border-signal"
+            >
+              <img
+                src="/photo/1.jpeg"
+                alt="أحمد ماجد عنان"
+                width="864"
+                height="1184"
+                loading="lazy"
+                decoding="async"
+                class="w-40 h-40 md:w-56 md:h-56 object-cover object-top"
+              />
+            </button>
+            <span class="tag text-paper whitespace-nowrap">متاح للتوظيف</span>
+          </div>
+          <div class="flex-1 space-y-6 text-lg leading-relaxed">
+            <p>
+              أنا <span class="font-medium">مطوّر واجهات أمامية</span> أعمل بـ
+              <span class="font-medium">Angular</span> و<span class="font-medium">JavaScript</span> و<span class="font-medium">Tailwind CSS</span>.
+              ومع خلفيتي في <span class="font-medium">إدارة الأعمال</span>، أبني تطبيقات ويب سريعة
+              تتمحور حول المستخدم.
+            </p>
+            <p>
+              أحب العمل ضمن فريق، وأتعلم التقنيات الحديثة باستمرار لأربط التقنية بأهداف العمل.
+              هدفي أن أبني تجارب رقمية مؤثرة تحقق نتائج.
+            </p>
+            <div class="pt-2">
+              <p class="eyebrow mb-4">من خبراتي</p>
+              <ul class="space-y-4 text-base">
+                <li class="flex items-start gap-4">
+                  <i class="fas fa-shopping-cart leading-icon mt-0.5" aria-hidden="true"></i>
+                  <span class="text-muted"><span class="text-paper font-medium">منصات التجارة الإلكترونية:</span> متاجر إلكترونية متجاوبة بميزات مثل بوابات الدفع وفلاتر المنتجات.</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <i class="fas fa-comments leading-icon mt-0.5" aria-hidden="true"></i>
+                  <span class="text-muted"><span class="text-paper font-medium">تطبيقات التواصل الاجتماعي الفورية:</span> منصات تفاعلية فيها دردشة ومشاركة للوسائط وتحديثات فورية.</span>
+                </li>
+              </ul>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 pt-4">
+              <a href="#contact" class="btn btn-solid">تواصل معي</a>
+              <a href="/pdf/CV_Anan-Frontend.pdf" download class="btn btn-ghost">تحميل السيرة الذاتية (بالإنجليزية)</a>
+            </div>
+          </div>
+        </div>
+        <dialog id="photo-dialog" class="lightbox" aria-label="الصورة الشخصية">
+          <img
+            src="/photo/1.jpeg"
+            alt="أحمد ماجد عنان"
+            width="864"
+            height="1184"
+            loading="lazy"
+            class="block max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain rounded-md border border-line"
+          />
+        </dialog>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="panel">
+        <div class="mb-12">
+          <p class="eyebrow mb-3">02</p>
+          <h2 class="section-title reveal-scroll">المهارات</h2>
+        </div>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <!-- render:skill-cards -->
+        </ul>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="panel">
+        <div class="mb-12">
+          <p class="eyebrow mb-3">03</p>
+          <h2 class="section-title reveal-scroll">المشاريع</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- render:project-cards -->
+        </div>
+        <div class="mt-12">
+          <h3 class="text-xl mb-2">أعمال سابقة</h3>
+          <ul class="divide-y divide-line border-t border-line">
+            <!-- render:earlier-work -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- Experience & Education -->
+      <section id="experience" class="panel">
+        <div class="mb-12">
+          <p class="eyebrow mb-3">04</p>
+          <h2 class="section-title reveal-scroll">الخبرات والتعليم</h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 items-start gap-8 lg:gap-12">
+          <div class="lg:col-span-2 space-y-10">
+            <div>
+              <h3 class="text-xl mb-4">الخبرات</h3>
+              <ul class="space-y-4">
+                <!-- render:experience-cards -->
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl mb-4">التعليم</h3>
+              <ul class="space-y-4">
+                <!-- render:education-cards -->
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="text-xl mb-4">اللغات</h3>
+            <dl class="divide-y divide-line">
+              <div class="flex items-center justify-between gap-4 py-4">
+                <dt class="font-medium">العربية</dt>
+                <dd class="eyebrow">اللغة الأم</dd>
+              </div>
+              <div class="flex items-center justify-between gap-4 py-4">
+                <dt class="font-medium">الإنجليزية</dt>
+                <dd class="eyebrow">جيد جدًا</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="panel">
+        <div class="mb-12">
+          <p class="eyebrow mb-3">05</p>
+          <h2 class="section-title reveal-scroll">تواصل معي</h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 items-start gap-8 lg:gap-12">
+          <div class="space-y-8">
+            <p class="text-lg text-muted">راسلني مباشرةً أو عبر النموذج.</p>
+            <p class="eyebrow"><i class="fas fa-location-dot me-1.5" aria-hidden="true"></i>مصر · متاح للعمل عن بُعد</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="card flex items-center gap-4">
+                <i class="fab fa-whatsapp leading-icon" aria-hidden="true"></i>
+                <div>
+                  <p class="eyebrow mb-1">واتساب</p>
+                  <a href="https://wa.me/201002416804" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">راسلني على واتساب</a>
+                </div>
+              </div>
+              <div class="card flex items-center gap-4">
+                <i class="fas fa-envelope leading-icon" aria-hidden="true"></i>
+                <div class="min-w-0">
+                  <p class="eyebrow mb-1">البريد الإلكتروني</p>
+                  <a href="mailto:ahmed.anan.dev@gmail.com" class="text-link break-all">ahmed.anan.dev@gmail.com</a>
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-3 -ms-2.5">
+              <!-- render:social-links -->
+            </div>
+          </div>
+          <form id="contact-form" action="https://formspree.io/f/mvkgovov" method="POST" class="space-y-4">
+            <label for="name" class="sr-only">اسمك</label>
+            <input type="text" id="name" name="name" placeholder="اسمك" autocomplete="name" required class="field" />
+            <label for="email" class="sr-only">بريدك الإلكتروني</label>
+            <input type="email" id="email" name="email" placeholder="بريدك الإلكتروني" autocomplete="email" required class="field" />
+            <label for="message" class="sr-only">رسالتك</label>
+            <textarea id="message" name="message" placeholder="رسالتك" rows="5" required class="field"></textarea>
+            <!-- The page's single signal-colored call to action -->
+            <button type="submit" id="contact-submit" data-sending="جارٍ الإرسال…" class="btn btn-primary w-full py-4 disabled:opacity-60 disabled:cursor-not-allowed">إرسال الرسالة</button>
+            <p id="form-success" class="font-medium" role="status" hidden>تم إرسال رسالتك بنجاح.</p>
+            <p id="form-error" class="font-medium" role="alert" hidden>
+              حدث خطأ ما. حاول مرة أخرى أو راسلني مباشرةً على
+              <a href="mailto:ahmed.anan.dev@gmail.com" class="text-link">ahmed.anan.dev@gmail.com</a>.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-line">
+      <div class="container mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-muted">© <span id="current-year">2026</span> أحمد ماجد عنان. جميع الحقوق محفوظة.</p>
+        <a href="#home" class="btn btn-sm btn-ghost">العودة إلى الأعلى</a>
+      </div>
+    </footer>
+
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>
