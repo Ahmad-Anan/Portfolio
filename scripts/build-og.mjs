@@ -24,6 +24,15 @@ const cards = [
     line: 'I build fast, accessible Angular apps, with Signals, SSR, and full Arabic/English RTL.',
   },
   {
+    file: 'home-ar.png',
+    lang: 'ar',
+    dir: 'rtl',
+    eyebrow: 'البورتفوليو',
+    title: 'أحمد ماجد عنان',
+    subtitle: 'مطوّر واجهات أمامية، متخصص في Angular',
+    line: 'أبني تطبيقات Angular سريعة وسهلة الوصول، باستخدام Signals وSSR ودعم كامل للعربية والإنجليزية من اليمين إلى اليسار.',
+  },
+  {
     file: 'tawasol.png',
     eyebrow: 'Case study',
     title: 'Tawasol',
