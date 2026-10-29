@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "cv": "node scripts/build-cv.mjs",
     "og": "node scripts/build-og.mjs",
-    "csp-hash": "node scripts/csp-hash.mjs"
+    "csp-hash": "node scripts/csp-hash.mjs",
+    "check-links": "node scripts/check-links.mjs"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",

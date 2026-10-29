@@ -1,0 +1,63 @@
+# Builds the site and checks it on every push to main and every pull request:
+# the CSP hash of each inline script, every internal link and asset, and mobile Lighthouse scores.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+# A newer push to the same branch or pull request cancels the run still in progress.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+
+      # Linux checks out LF files, as Vercel does, so these hashes match production.
+      - name: Check inline-script hashes in the CSP
+        run: npm run csp-hash
+
+      - name: Check internal links and assets
+        run: npm run check-links
+
+      # Mobile is Lighthouse's default form factor; lighthouserc.json holds the URLs and thresholds.
+      # Best practices scores about 0.96 here, not 1: /_vercel/insights/script.js only exists on
+      # Vercel, so its 404 logs a console error. Hence best-practices >= 0.9.
+      - name: Collect Lighthouse scores (3 runs per page)
+        run: npx --yes @lhci/cli@0.15.1 collect
+
+      - name: Save Lighthouse reports
+        if: ${{ !cancelled() }}
+        run: npx --yes @lhci/cli@0.15.1 upload
+
+      - name: Assert Lighthouse thresholds (median run)
+        run: npx --yes @lhci/cli@0.15.1 assert
+
+      - name: Upload Lighthouse reports
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: lighthouse-report
+          path: |
+            lighthouse-report/
+            .lighthouseci/
+          if-no-files-found: ignore
+          retention-days: 14
