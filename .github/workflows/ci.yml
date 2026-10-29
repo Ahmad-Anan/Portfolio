@@ -17,7 +17,9 @@ concurrency:
 
 jobs:
   quality:
-    runs-on: ubuntu-latest
+    # Pinned, not ubuntu-latest: when that label moves to a new image, its Chrome and system
+    # libraries change with it, which can shift Lighthouse scores or break Chrome's launch.
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -41,7 +43,7 @@ jobs:
       # Mobile is Lighthouse's default form factor; lighthouserc.json holds the URLs and thresholds.
       # Best practices scores about 0.96 here, not 1: /_vercel/insights/script.js only exists on
       # Vercel, so its 404 logs a console error. Hence best-practices >= 0.9.
-      - name: Collect Lighthouse scores (3 runs per page)
+      - name: Collect Lighthouse scores (5 runs per page)
         run: npx --yes @lhci/cli@0.15.1 collect
 
       - name: Save Lighthouse reports
