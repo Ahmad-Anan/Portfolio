@@ -51,6 +51,7 @@ export const projects = translate(en.projects, 'source', {
   'https://github.com/Ahmad-Anan/kingmart': {
     title: 'كينج مارت — متجر إلكتروني فاخر',
     description: 'متجر إلكتروني متكامل بـ Angular 22 مع Signals وzoneless change detection وOnPush افتراضيًا، مبني على نظام تصميم خاص بطابع «الفخامة الهادئة»، مع وضع داكن مصمَّم خصيصًا ودعم كامل للعربية والإنجليزية من اليمين إلى اليسار. يتضمن خدمات للسلة وقائمة الأمنيات قائمة على Signals، وحراسة مسارات آمنة مع SSR، ودفعًا عبر Stripe، وعدّاد كمية مخصّصًا.',
+    caseStudy: toArabicPath(en.projects.find((p) => p.source.endsWith('/kingmart')).caseStudy),
   },
   'https://github.com/Ahmad-Anan/tawasol': {
     title: 'تواصل — منصة تواصل اجتماعي',

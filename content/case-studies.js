@@ -74,7 +74,7 @@ export const tawasol = {
   ],
 };
 
-// Screenshots are added once KingMart's image fix is deployed (cover and figures are optional).
+// Screenshots are added once the live demo stops showing PrimeUI's license badge (cover and figures are optional).
 export const kingmart = {
   slug: 'kingmart',
   title: 'KingMart',
