@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "cv": "node scripts/build-cv.mjs",
-    "og": "node scripts/build-og.mjs"
+    "og": "node scripts/build-og.mjs",
+    "csp-hash": "node scripts/csp-hash.mjs"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
